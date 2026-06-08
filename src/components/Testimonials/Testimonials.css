@@ -1,0 +1,118 @@
+.testimonials {
+  overflow: hidden;
+}
+
+.testimonials__rows {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  position: relative;
+}
+
+.testimonials__rows::before,
+.testimonials__rows::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 18%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.testimonials__rows::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--primary-bg), transparent);
+}
+
+.testimonials__rows::after {
+  right: 0;
+  background: linear-gradient(270deg, var(--primary-bg), transparent);
+}
+
+.testimonials__row {
+  overflow: hidden;
+}
+
+.testimonials__track {
+  display: flex;
+  gap: var(--space-5);
+  width: max-content;
+  animation: marquee 40s linear infinite;
+}
+
+.testimonials__track--reverse {
+  animation: marqueeReverse 46s linear infinite;
+}
+
+.testimonials__rows:hover .testimonials__track {
+  animation-play-state: paused;
+}
+
+.tcard {
+  width: 340px;
+  flex-shrink: 0;
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  transition: transform var(--t-base) var(--ease-out),
+    border-color var(--t-base) var(--ease-soft);
+}
+
+.tcard:hover {
+  transform: translateY(-6px);
+  border-color: rgba(106, 235, 201, 0.4);
+}
+
+.tcard__head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.tcard__avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--primary-bg);
+}
+
+.tcard__name {
+  display: block;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+}
+
+.tcard__company {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+}
+
+.tcard__title {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.tcard__text {
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.tcard__stars {
+  color: var(--cta-color);
+  font-size: var(--fs-sm);
+  letter-spacing: 2px;
+}
+
+@media (max-width: 480px) {
+  .tcard {
+    width: 280px;
+  }
+}

@@ -1,0 +1,66 @@
+:root {
+  /* ===== Brand colors (from brief) ===== */
+  --primary-bg: #061127;
+  --secondary-blue: #1d4dd7;
+  --cta-color: #1d4dd7;
+  --footer-blue: #0f2871;
+  --white: #ffffff;
+  --text-light: #d7dce5;
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --shadow-blue: rgba(29, 77, 215, 0.35);
+
+  /* ===== Derived / support colors ===== */
+  --primary-bg-soft: #0a193a;
+  --primary-bg-deep: #040b1b;
+  --text-muted: #8b97b0;
+  --cta-soft: rgba(106, 235, 201, 0.12);
+  --blue-soft: rgba(29, 77, 215, 0.18);
+  --glass-bg-strong: rgba(255, 255, 255, 0.06);
+  --glass-bg-faint: rgba(255, 255, 255, 0.03);
+
+  /* ===== Typography ===== */
+  --font-heading: "Geist", "Inter", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+
+  --fs-hero: clamp(2.6rem, 6vw, 4.6rem);
+  --fs-h2: clamp(2rem, 4vw, 3.1rem);
+  --fs-h3: clamp(1.4rem, 2.4vw, 1.9rem);
+  --fs-lg: 1.125rem;
+  --fs-base: 1rem;
+  --fs-sm: 0.9rem;
+  --fs-xs: 0.8rem;
+
+  /* ===== Spacing system ===== */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+  --section-pad: clamp(4rem, 9vw, 8rem);
+  --container: 1200px;
+
+  /* ===== Radius ===== */
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-pill: 999px;
+
+  /* ===== Shadows ===== */
+  --shadow-soft: 0 10px 40px rgba(4, 11, 27, 0.45);
+  --shadow-card: 0 20px 60px rgba(4, 11, 27, 0.55);
+  --shadow-glow: 0 0 60px var(--shadow-blue);
+  --shadow-cta: 0 10px 25px rgba(29, 77, 215, 0.25);
+
+  /* ===== Motion ===== */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
+  --t-fast: 0.18s;
+  --t-base: 0.32s;
+  --t-slow: 0.6s;
+}

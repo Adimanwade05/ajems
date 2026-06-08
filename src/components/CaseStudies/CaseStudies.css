@@ -1,0 +1,200 @@
+/* ===== Full-width manual carousel ===== */
+.cases__viewport {
+  width: 100%;
+  padding-left: 40px;
+  overflow: hidden;
+}
+
+.cases__track {
+  display: flex;
+  gap: var(--space-6);
+  padding: var(--space-3) var(--space-6);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.cases__track::-webkit-scrollbar {
+  display: none;
+}
+
+
+.case {
+  flex: 0 0 calc((100% - (var(--space-6) * 2)) / 2.5);   /* 3.5 se 2.5 — cards chaude */
+  scroll-snap-align: start;
+  display: grid;
+  grid-template-columns: 40% 60%;
+  height: 340px;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 4px solid var(--glass-border);
+  box-shadow: 0 20px 50px rgba(4, 11, 27, 0.4);
+}
+
+
+/* ===== Variants ===== */
+.case--gradient-blue {
+  background: linear-gradient(135deg, #1D4DD7, #0F2871);
+  color: #fff;
+}
+
+.case--gradient-violet {
+  background: linear-gradient(135deg, #6d28d9, #4338ca);
+  color: #fff;
+}
+
+.case--plain {
+  background: rgba(255, 255, 255, 0.05);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  backdrop-filter: blur(18px) saturate(140%);
+  border-color: rgba(120, 170, 255, 0.25);
+  color: #fff;
+}
+
+/* ===== Content (40%) ===== */
+.case__body {
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;   /* tag upar, content neeche */
+  gap: var(--space-3);
+}
+
+
+.case__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  width: fit-content;
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  padding: 5px 11px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+.case__metric-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.case__metric {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 2.6vw, 2.6rem);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.case__metric-label {
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.5;
+}
+
+.case__quote-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.case__quote-mark {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.case__quote {
+  font-family: var(--font-heading);
+  font-size: clamp(0.75rem, 1vw, 0.9rem);
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+.case__author {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.case__link {
+  margin-top: var(--space-2);
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  color: #fff;
+  transition: gap var(--t-base) var(--ease-out);
+}
+
+.case__link:hover {
+  gap: var(--space-3);
+}
+
+/* ===== Image (60%, square) ===== */
+.case__media {
+  position: relative;
+  height: 100%; 
+  overflow: hidden;
+}
+
+.case__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ===== Controls ===== */
+.cases__controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+}
+
+.cases__arrow {
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--white);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  transition: transform var(--t-base) var(--ease-out),
+    border-color var(--t-base) var(--ease-soft),
+    background var(--t-base) var(--ease-soft);
+}
+
+.cases__arrow:hover {
+  transform: translateY(-2px);
+  border-color: rgba(106, 235, 201, 0.5);
+  background: rgba(106, 235, 201, 0.12);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 980px) {
+  .case {
+    flex: 0 0 70%;
+  }
+}
+
+@media (max-width: 640px) {
+  .case {
+    flex: 0 0 85%;
+    grid-template-columns: 1fr;
+  }
+  .case__media {
+    aspect-ratio: 16 / 10;
+    order: -1;
+  }
+}

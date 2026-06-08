@@ -1,0 +1,33 @@
+/* ===== Global responsive adjustments =====
+   Component-level responsiveness lives in each component's CSS.
+   This file tunes shared tokens at key breakpoints. */
+
+@media (max-width: 1024px) {
+  :root {
+    --container: 960px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --section-pad: clamp(3rem, 10vw, 5rem);
+  }
+
+  .container {
+    padding: 0 var(--space-4);
+  }
+
+  .section-title {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --fs-lg: 1.02rem;
+  }
+
+  .btn {
+    padding: 0.78rem 1.3rem;
+  }
+}

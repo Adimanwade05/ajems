@@ -1,0 +1,24 @@
+.showcase {
+  border-radius: 18px;
+  overflow: hidden;
+  background: linear-gradient(180deg, #0a1838, #061127);
+  border: 1px solid var(--glass-border);
+}
+
+.showcase__screen {
+  display: block;
+  line-height: 0;
+}
+
+.showcase__video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .showcase__screen {
+    min-height: auto;
+  }
+}

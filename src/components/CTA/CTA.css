@@ -1,0 +1,74 @@
+.cta__card {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(3rem, 7vw, 6rem) var(--space-6);
+  text-align: center;
+  border-radius: var(--radius-xl);
+}
+
+.cta__glow {
+  position: absolute;
+  inset: -40%;
+  background: conic-gradient(
+    from 0deg,
+    rgba(29, 77, 215, 0.35),
+    rgba(106, 235, 201, 0.25),
+    rgba(15, 40, 113, 0.4),
+    rgba(29, 77, 215, 0.35)
+  );
+  filter: blur(70px);
+  opacity: 0.65;
+  z-index: 0;
+}
+
+.cta__particles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.cta__particles span {
+  position: absolute;
+  bottom: -10px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--cta-color);
+  box-shadow: 0 0 10px var(--cta-color);
+  animation: riseParticle linear infinite;
+}
+
+.cta__content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cta__title {
+  font-size: var(--fs-h2);
+  font-weight: 600;
+  margin: var(--space-4) 0 var(--space-3);
+}
+
+.cta__subtitle {
+  color: var(--text-light);
+  font-size: var(--fs-lg);
+  max-width: 52ch;
+  margin-bottom: var(--space-6);
+}
+
+.cta__actions {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.cta__btn {
+  padding: 1rem 2.2rem;
+  font-size: var(--fs-base);
+}

@@ -1,0 +1,19 @@
+.sh {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--space-8);
+}
+
+.sh-center {
+  align-items: center;
+  text-align: center;
+}
+
+.sh-center .section-title {
+  margin-inline: auto;
+}
+
+.sh-left {
+  align-items: flex-start;
+  text-align: left;
+}
