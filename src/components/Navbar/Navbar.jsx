@@ -44,6 +44,10 @@ export default function Navbar() {
         </nav>
 
         <div className="navbar__actions">
+          <Link to="/contact" className="btn btn-secondary navbar__cta">
+            14 Day Free Trial
+          </Link>
+
           <Link to="/contact" className="btn btn-primary navbar__cta">
             Sign Up
           </Link>
@@ -79,6 +83,9 @@ export default function Navbar() {
                 {link.label}
               </NavLink>
             ))}
+             <Link to="/contact" className="btn btn-secondary navbar__drawer-cta">
+    14 Day Free Trial
+  </Link>
             <Link to="/contact" className="btn btn-primary navbar__drawer-cta">
               Sign Up
             </Link>

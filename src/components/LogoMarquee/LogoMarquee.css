@@ -56,3 +56,13 @@
   color: var(--cta-color);
   transform: scale(1.08);
 }
+
+@media (max-width: 768px) {
+  .navbar__actions .navbar__cta {
+    display: none;
+  }
+
+  .navbar__burger {
+    display: flex;
+  }
+}
