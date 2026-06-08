@@ -1,6 +1,11 @@
 import { Link } from "react-router-dom";
 import logo from "../../assets/images/ajems_logo.png";
-import { FaFacebook, FaInstagram, FaXTwitter, FaLinkedin } from "react-icons/fa6";
+import {
+  FaFacebook,
+  FaInstagram,
+  FaXTwitter,
+  FaLinkedin,
+} from "react-icons/fa6";
 import "./Footer.css";
 
 const columns = [
@@ -33,8 +38,6 @@ const columns = [
   },
 ];
 
-
-
 const socials = [
   { Icon: FaFacebook, label: "Facebook" },
   { Icon: FaInstagram, label: "Instagram" },
@@ -52,8 +55,8 @@ export default function Footer() {
         <div className="footer__brand">
           <img src={logo} alt="AJEMS" className="footer__logo" />
           <p className="footer__tagline">
-            CRM, CMS &amp; HRMS unified on one intelligent platform designed
-            to meet your business needs.
+            Streamline operations, automate processes, and manage your business
+            from one platform
           </p>
           <div className="footer__socials">
             {socials.map(({ Icon, label }) => (
