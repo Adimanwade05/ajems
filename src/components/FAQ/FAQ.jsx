@@ -5,27 +5,26 @@ import "./FAQ.css";
 
 const faqs = [
   {
-    q: "What is an AI Agent?",
-    a: "An AI Agent is a task-specific assistant that automates workflows like scheduling, content creation and data processing — without requiring any code.",
+    q: "Do I need technical knowledge or coding skills to use AJEMS?",
+    a: "No. AJEMS is designed for business users and teams. You can create forms, workflows, dashboards, reports, and business applications without writing code.",
   },
   {
-    q: "Do I need technical skills to use an agent?",
-    a: "Not at all. AJEMS is built no-code first. You configure agents with a visual builder, and templates get you running in minutes.",
+    q: "What types of business systems can be built using AJEMS?",
+    a: "You can build CRM, HRMS, ERP, inventory management, approval workflows, project management, vendor management, compliance systems, and other custom business applications tailored to your processes.",
   },
   {
-    q: "Can I use multiple agents at the same time?",
-    a: "Yes. Run as many agents in parallel as you need. They share context across CRM, CMS and HRMS so work never falls through the cracks.",
+    q: "Can AJEMS be customized for different industries?",
+    a: "Yes. AJEMS is highly flexible and can be configured for industries such as healthcare, manufacturing, real estate, education, IT services, construction, and many others.",
   },
   {
-    q: "How customizable are the agents?",
-    a: "Fully. Adjust triggers, actions, tone and guardrails. Advanced teams can extend behaviour through our open API and webhooks.",
+    q: "Can I try AJEMS before purchasing?",
+    a: "Absolutely. AJEMS offers a free 14-day trial, allowing you to explore the platform, build your first application, and evaluate how it fits your business requirements before making a decision.",
   },
   {
-    q: "What tools do the agents integrate with?",
-    a: "AJEMS ships with 200+ native connectors covering email, calendars, messaging, storage and analytics — plus anything reachable over our API.",
+    q: "How quickly can I get started with AJEMS?",
+    a: "Most businesses can start creating forms, workflows, and dashboards within a few hours. Depending on complexity, complete business systems can be deployed in days instead of months.",
   },
 ];
-
 export default function FAQ() {
   const [open, setOpen] = useState(0);
 

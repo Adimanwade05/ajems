@@ -8,27 +8,27 @@ import img3 from "../../assets/images/3.avif";
 
 const items = [
   {
-    id: "whatsapp",
-    label: "From WhatsApp",
-    desc: "Capture leads the moment they message you on WhatsApp — no reply goes missing.",
+    id: "Manufacturing",
+    label: "Manufacturing",
+    desc: "Track production, inventory, quality control, vendors, and approvals with real-time visibility across every process.",
     img: img1,
   },
   {
-    id: "instagram",
-    label: "From Instagram",
-    desc: "Turn DMs and story replies into qualified leads automatically.",
+    id: "Real Estate",
+    label: "Real Estate",
+    desc: "Centralize leads, property management, project tracking, approvals, documentation, and customer communication in one platform.",
     img: img2,
   },
   {
-    id: "website",
-    label: "From your website",
-    desc: "Every form fill and chat starts a conversation instantly.",
+    id: "Information Technology",
+    label: "Information Technology",
+    desc: "Manage projects, support requests, employee workflows, approvals, assets, and reporting with complete operational visibility.",
     img: img3,
   },
   {
-    id: "voice",
-    label: "From voice",
-    desc: "Prospects call a dedicated number. Your AI agent answers, qualifies, and routes them. Every call becomes a lead.",
+    id: "Education",
+    label: "Education",
+    desc: "Manage admissions, student records, staff operations, approvals, communication, and reporting through a unified system",
     img: img1,
   },
 ];
@@ -44,12 +44,12 @@ export default function FeaturesTabs() {
           {/* LEFT */}
           <div className="features__left">
             <h2 className="features__title">
-              Applications Built for Every Business Function
-
+              One Platform. Unlimited Industry Possibilities.
             </h2>
             <p className="features__sub">
-              Build and manage CRM, ERP, HRMS, and CMS applications from a single no-code platform designed to automate workflows, centralize data, and help teams work smarter and faster.
-
+              Manage patient records, approvals, staff workflows, compliance
+              processes, and reporting through one secure and centralized
+              platform.
             </p>
 
             <div className="features__list">
