@@ -30,11 +30,11 @@ const columns = [
   {
     title: "Resources",
     links: [
+      { label: "Knowledge Base", to: "/knowledgebase" },
+      { label: "Products Update", to: "/products-update" },
       { label: "Blog", to: "/about" },
       { label: "Case Studies", to: "/#case-studies" },
       { label: "Careers", to: "/about" },
-      { label: "Knowledge Base", to: "/knowledgebase" },
-      { label: "Products Update", to: "/products-update" },
     ],
   },
   {
