@@ -37,30 +37,130 @@ const menu = [
 ];
 
 const statCards = [
-  { label: "All Apps", value: "40", Icon: LayoutGrid, grad: "linear-gradient(135deg,#13b8a6,#0e7d8c)" },
-  { label: "All Forms", value: "106", Icon: ListChecks, grad: "linear-gradient(135deg,#e05fb8,#a23bd6)" },
-  { label: "All Users", value: "28", Icon: Users, grad: "linear-gradient(135deg,#16c39a,#1f8f6e)" },
-  { label: "All User Forms Permissions", value: "14", Icon: Shield, grad: "linear-gradient(135deg,#f7a01e,#f2541a)" },
-  { label: "Organization", value: "1", Icon: Building2, grad: "linear-gradient(135deg,#7b5cf0,#5a37d6)" },
-  { label: "Cloud Storage", value: "813.53 MB", Icon: Cloud, grad: "linear-gradient(135deg,#27c0e8,#1f8fd6)" },
-  { label: "Calendar", value: "0", Icon: CalendarIcon, grad: "linear-gradient(135deg,#7ad84f,#36a94a)" },
-  { label: "Coming Soon", value: "—", Icon: Globe, grad: "linear-gradient(135deg,#8b7ad6,#5a4a9e)" },
+  {
+    label: "All Apps",
+    value: "40",
+    Icon: LayoutGrid,
+    grad: "linear-gradient(135deg,#13b8a6,#0e7d8c)",
+  },
+  {
+    label: "All Forms",
+    value: "106",
+    Icon: ListChecks,
+    grad: "linear-gradient(135deg,#e05fb8,#a23bd6)",
+  },
+  {
+    label: "All Users",
+    value: "28",
+    Icon: Users,
+    grad: "linear-gradient(135deg,#16c39a,#1f8f6e)",
+  },
+  {
+    label: "All User Forms Permissions",
+    value: "14",
+    Icon: Shield,
+    grad: "linear-gradient(135deg,#f7a01e,#f2541a)",
+  },
+  {
+    label: "Organization",
+    value: "1",
+    Icon: Building2,
+    grad: "linear-gradient(135deg,#7b5cf0,#5a37d6)",
+  },
+  {
+    label: "Cloud Storage",
+    value: "813.53 MB",
+    Icon: Cloud,
+    grad: "linear-gradient(135deg,#27c0e8,#1f8fd6)",
+  },
+  {
+    label: "Calendar",
+    value: "0",
+    Icon: CalendarIcon,
+    grad: "linear-gradient(135deg,#7ad84f,#36a94a)",
+  },
+  {
+    label: "Coming Soon",
+    value: "—",
+    Icon: Globe,
+    grad: "linear-gradient(135deg,#8b7ad6,#5a4a9e)",
+  },
 ];
 
 const apps = [
-  { name: "Accounting", meta: "3 Forms · Apr 5", tone: "#cfe8ff", color: "#1d6fd6", Icon: IndianRupee },
-  { name: "Compliance", meta: "2 Forms · Apr 3", tone: "#ecd9ff", color: "#7b3bd6", Icon: ArrowRightLeft },
-  { name: "HR System", meta: "2 Forms · Apr 19", tone: "#d9e4ff", color: "#3b5bd6", Icon: Users },
-  { name: "Invoice Flow", meta: "0 Forms · Sep 11", tone: "#d9ecff", color: "#1d8fd6", Icon: Zap },
-  { name: "Lab Reports", meta: "5 Forms · Jun 2", tone: "#ffe6cc", color: "#e07d1a", Icon: FlaskConical },
-  { name: "Chemical Inv.", meta: "2 Forms · Apr 1", tone: "#f3d9ff", color: "#a23bd6", Icon: FileBarChart },
+  {
+    name: "Accounting",
+    meta: "3 Forms · Apr 5",
+    tone: "#cfe8ff",
+    color: "#1d6fd6",
+    Icon: IndianRupee,
+  },
+  {
+    name: "Compliance",
+    meta: "2 Forms · Apr 3",
+    tone: "#ecd9ff",
+    color: "#7b3bd6",
+    Icon: ArrowRightLeft,
+  },
+  {
+    name: "HR System",
+    meta: "2 Forms · Apr 19",
+    tone: "#d9e4ff",
+    color: "#3b5bd6",
+    Icon: Users,
+  },
+  {
+    name: "Invoice Flow",
+    meta: "0 Forms · Sep 11",
+    tone: "#d9ecff",
+    color: "#1d8fd6",
+    Icon: Zap,
+  },
+  {
+    name: "Lab Reports",
+    meta: "5 Forms · Jun 2",
+    tone: "#ffe6cc",
+    color: "#e07d1a",
+    Icon: FlaskConical,
+  },
+  {
+    name: "Chemical Inv.",
+    meta: "2 Forms · Apr 1",
+    tone: "#f3d9ff",
+    color: "#a23bd6",
+    Icon: FileBarChart,
+  },
 ];
 
 const actions = [
-  { name: "Staff Management", meta: "Do check-in and check-out here", tone: "#ffdede", color: "#e0484f", Icon: Home },
-  { name: "Check Logs", meta: "Check particular month logs", tone: "#ffdede", color: "#e0484f", Icon: ListChecks },
-  { name: "All Logs", meta: "Check all users logs here", tone: "#d6f5e0", color: "#2ea35a", Icon: LayoutGrid },
-  { name: "Report", meta: "Download report here", tone: "#d6f5e0", color: "#2ea35a", Icon: Download },
+  {
+    name: "Staff Management",
+    meta: "Do check-in and check-out here",
+    tone: "#ffdede",
+    color: "#e0484f",
+    Icon: Home,
+  },
+  {
+    name: "Check Logs",
+    meta: "Check particular month logs",
+    tone: "#ffdede",
+    color: "#e0484f",
+    Icon: ListChecks,
+  },
+  {
+    name: "All Logs",
+    meta: "Check all users logs here",
+    tone: "#d6f5e0",
+    color: "#2ea35a",
+    Icon: LayoutGrid,
+  },
+  {
+    name: "Report",
+    meta: "Download report here",
+    tone: "#d6f5e0",
+    color: "#2ea35a",
+    Icon: Download,
+  },
 ];
 
 function Panel({ active }) {
@@ -69,7 +169,10 @@ function Panel({ active }) {
       <div className="dash__apps">
         {apps.map((a) => (
           <div className="dash__app" key={a.name}>
-            <span className="dash__app-ico" style={{ background: a.tone, color: a.color }}>
+            <span
+              className="dash__app-ico"
+              style={{ background: a.tone, color: a.color }}
+            >
               <a.Icon size={20} strokeWidth={2} />
             </span>
             <div>
@@ -87,7 +190,10 @@ function Panel({ active }) {
       <div className="dash__actions">
         {actions.map((a) => (
           <div className="dash__action" key={a.name}>
-            <span className="dash__action-ico" style={{ background: a.tone, color: a.color }}>
+            <span
+              className="dash__action-ico"
+              style={{ background: a.tone, color: a.color }}
+            >
               <a.Icon size={22} strokeWidth={2} />
             </span>
             <div>
@@ -103,7 +209,11 @@ function Panel({ active }) {
   return (
     <div className="dash__stats">
       {statCards.map((s) => (
-        <div className="dash__stat" key={s.label} style={{ background: s.grad }}>
+        <div
+          className="dash__stat"
+          key={s.label}
+          style={{ background: s.grad }}
+        >
           <span className="dash__stat-bubbles" />
           <span className="dash__stat-ico">
             <s.Icon size={18} strokeWidth={2} />
@@ -125,8 +235,8 @@ export default function Dashboard() {
     <section className="dash section">
       <div className="container">
         <SectionHeading
-          title="One Dashboard. Complete Visibility."
-          subtitle="Monitor every process, application, and team from a single workspace designed for faster decisions and better control."
+          title="One Dashboard. Complete Business Intelligence."
+          subtitle="A real-time view of everything that drives your business."
         />
 
         <motion.div
@@ -139,7 +249,6 @@ export default function Dashboard() {
           {/* sidebar */}
           <aside className="dash__sidebar">
             <img src={logo} alt="AJEMS" className="dash__logo" />
-            
 
             <span className="dash__group">Core Platforms</span>
             {core.map((m) => (
@@ -173,7 +282,9 @@ export default function Dashboard() {
               <span className="dash__upgrade-sub">
                 Unlock AI agents &amp; unlimited apps
               </span>
-              <button className="dash__upgrade-btn">Start 14-day free trial</button>
+              <button className="dash__upgrade-btn">
+                Start 14-day free trial
+              </button>
             </div>
           </aside>
 
@@ -201,8 +312,6 @@ export default function Dashboard() {
               </motion.div>
             </AnimatePresence>
           </div>
-
-          
         </motion.div>
       </div>
     </section>

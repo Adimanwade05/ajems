@@ -174,8 +174,8 @@
   letter-spacing: 0.1em;
   padding: 3px 9px;
   border-radius: var(--radius-pill);
-  color: var(--cta-color);
-  background: var(--white);
+  color: var(--primary-bg-deep);
+  background: var(--cta-color);
   margin-bottom: 4px;
 }
 
@@ -198,8 +198,8 @@
   font-weight: 600;
   border-radius: var(--radius-pill);
   background: var(--cta-color);
-  color: var(--cta-color);
-  background: var(--white);
+  color: var(--primary-bg-deep);
+  background: var(--cta-color);
   transition: transform var(--t-base) var(--ease-out),
     box-shadow var(--t-base) var(--ease-soft);
 }

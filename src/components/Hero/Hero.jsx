@@ -1,7 +1,8 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import cornerImg from "../../assets/images/glow.svg";
+import videoThumb from "../../assets/images/videothaumb.png";
 import ShowcaseFrame from "./ShowcaseFrame.jsx";
 import TrafficGrid from "./TrafficGrid.jsx";
 import "./Hero.css";
@@ -23,6 +24,7 @@ const fadeUp = {
 export default function Hero() {
   const scaleRef = useRef(null);
   const videoRef = useRef(null);
+  const [showThumb, setShowThumb] = useState(true);
 
   const { scrollYProgress } = useScroll({
     target: scaleRef,
@@ -36,19 +38,22 @@ export default function Hero() {
   const glow = useTransform(
     scrollYProgress,
     [0, 0.6],
-    ["0 20px 60px rgba(4,11,27,0.5)", "0 50px 140px rgba(29,77,215,0.4)"],
+    ["0 20px 60px rgba(4,11,27,0.5)", "0 50px 140px rgba(29,77,215,0.4)"]
   );
 
-  // Play video only on scroll; pause when out of view
   useEffect(() => {
     const unsub = scrollYProgress.on("change", (v) => {
       const vid = videoRef.current;
       if (!vid) return;
-      // start playing once the showcase begins scaling up
+
       if (v > 0.05 && v < 0.95) {
-        if (vid.paused) vid.play().catch(() => {});
+        if (vid.paused) {
+          vid.play().catch(() => {});
+          setShowThumb(false); 
+        }
       } else {
         if (!vid.paused) vid.pause();
+        if (v <= 0.05) setShowThumb(true); 
       }
     });
     return () => unsub();
@@ -74,9 +79,9 @@ export default function Hero() {
           animate="show"
           custom={1}
         >
-          Build Business Software Without Writing
+          Every Business Process.
           <br />
-          <span className="text-gradient">A Single Line Of Code</span>
+          <span className="text-gradient">One Powerful Platform.</span>
         </motion.h1>
 
         <motion.p
@@ -86,8 +91,8 @@ export default function Hero() {
           animate="show"
           custom={2}
         >
-          Design forms, automate workflows, track performance, and scale
-          operations without coding.
+          From everyday operations to business-critical decisions, AJEMS brings
+          every process, team, and workflow onto a single platform.
         </motion.p>
 
         <motion.div
@@ -101,18 +106,29 @@ export default function Hero() {
             Book a Demo
           </Link>
           <Link to="/contact" className="btn btn-secondary">
-            14 Day Free Trial
+            Start 14 Days Free Trial
           </Link>
         </motion.div>
       </div>
 
-      {/* Sticky cinematic showcase stage */}
       <div className="hero__stage" ref={scaleRef}>
         <div className="hero__sticky">
           <motion.div
             className="hero__showcase glass"
             style={{ scale, borderRadius: radius, boxShadow: glow }}
           >
+            {/* Thumbnail overlay */}
+            {showThumb && (
+              <motion.div
+                className="hero__thumb"
+                initial={{ opacity: 1 }}
+                animate={{ opacity: showThumb ? 1 : 0 }}
+                transition={{ duration: 0.5 }}
+              >
+                <img src={videoThumb} alt="Video preview" />
+              </motion.div>
+            )}
+
             <ShowcaseFrame videoRef={videoRef} />
           </motion.div>
         </div>

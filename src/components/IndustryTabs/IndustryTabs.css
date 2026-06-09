@@ -132,11 +132,12 @@
 
 /* ===== Image preview ===== */
 .industry__preview {
-    position: relative;
-    width: 70%;
-    z-index: 1;
-    margin: var(--space-5) auto 0;
+      position: relative;
+      width: 70%;
+      z-index: 1;
+      margin: var(--space-5) auto 0;
 }
+
 .industry__media {
       border-radius: var(--radius-lg);
       overflow: hidden;
@@ -148,12 +149,13 @@
       box-shadow: 0 30px 70px rgba(4, 11, 27, 0.5);
 }
 
-.industry__media img {
+.industry__media img,
+.industry__video {
       width: 100%;
       height: auto;
       display: block;
       border-radius: var(--radius-md);
-      aspect-ratio: 16 / 9;
+      aspect-ratio: 16/9;
       object-fit: cover;
 }
 

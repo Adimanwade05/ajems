@@ -7,6 +7,7 @@ import "./IndustryTabs.css";
 import img1 from "../../assets/images/1.avif";
 import img2 from "../../assets/images/2.avif";
 import img3 from "../../assets/images/3.avif";
+import fea1 from "../../assets/videos/fea1.mp4";
 
 const industries = [
   {
@@ -45,9 +46,9 @@ const industries = [
     sub: "Never lose a lead again",
   },
   {
-    id: "retail",
-    label: "Retail & Education",
-    img: img3,
+    id: "education",
+    label: "Education",
+    video: fea1,
     title: "Operations Hub",
     sub: "Run it all from one place",
   },
@@ -67,9 +68,7 @@ export default function IndustryTabs() {
           {/* heading */}
           <div className="industry__head">
             <h2 className="industry__title">
-              Get more done with AJEMS and
-              <br />
-              templates for your Industry
+              One Platform. Unlimited Industry Possibilities.
             </h2>
 
             {/* tabs */}
@@ -96,7 +95,7 @@ export default function IndustryTabs() {
             <Link to="/features" className="industry__cta">
               Get Started <ArrowRight size={15} />
             </Link>
-          </div> */}
+          </div>  */}
 
           {/* image preview */}
           <div className="industry__preview">
@@ -109,7 +108,19 @@ export default function IndustryTabs() {
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
               >
-                <img src={item.img} alt={item.label} />
+                {item.video ? (
+                  <video
+                    className="industry__video"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                  >
+                    <source src={item.video} type="video/mp4" />
+                  </video>
+                ) : (
+                  <img src={item.img} alt={item.label} />
+                )}
               </motion.div>
             </AnimatePresence>
           </div>

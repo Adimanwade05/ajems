@@ -55,8 +55,7 @@ export default function Footer() {
         <div className="footer__brand">
           <img src={logo} alt="AJEMS" className="footer__logo" />
           <p className="footer__tagline">
-            Streamline operations, automate processes, and manage your business
-            from one platform
+            One Platform. Every Process. Endless Possibilities.
           </p>
           <div className="footer__socials">
             {socials.map(({ Icon, label }) => (

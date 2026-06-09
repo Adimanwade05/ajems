@@ -32,9 +32,8 @@ export default function FAQ() {
     <section className="faq section">
       <div className="container faq__wrap">
         <SectionHeading
-         
-          title="Everything You Need to Know Before You Start"
-          subtitle="Explore answers about features, pricing, implementation, security, and how AJEMS fits your business needs."
+          title="Questions Before You Switch? We've Got Answers."
+          subtitle="See how AJEMS helps businesses simplify operations, automate processes, and grow without complexity."
         />
 
         <div className="faq__list">

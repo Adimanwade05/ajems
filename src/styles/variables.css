@@ -42,7 +42,7 @@
   --space-8: 4rem;
   --space-9: 6rem;
   --section-pad: clamp(4rem, 9vw, 8rem);
-  --container: 1200px;
+  --container: 1280px;
 
   /* ===== Radius ===== */
   --radius-sm: 10px;

@@ -22,7 +22,7 @@ export default function LogoMarquee() {
     <section className="marquee-section">
       <div className="container">
         <p className="marquee-label">
-          Trusted by Growing Businesses Across Industries
+         100+ Organizations Running Smarter with AJEMS
         </p>
 
         <div className="marquee">
