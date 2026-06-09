@@ -18,13 +18,6 @@ const industries = [
     sub: "Syncs impossible calendars",
   },
   {
-    id: "construction",
-    label: "Construction",
-    img: img2,
-    title: "Project Monitor",
-    sub: "Surfaces hidden risks",
-  },
-  {
     id: "it",
     label: "IT",
     img: img3,

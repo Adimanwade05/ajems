@@ -10,7 +10,7 @@ import "./Footer.css";
 
 const columns = [
   {
-    title: "Products",
+    title: "Company",
     links: [
       { label: "About", to: "/about" },
       { label: "Features", to: "/features" },
@@ -19,12 +19,22 @@ const columns = [
     ],
   },
   {
-    title: "Company",
+    title: "Solutions",
+    links: [
+      { label: "CRM", to: "/crm" },
+      { label: "ERP", to: "/erp" },
+      { label: "HRMS", to: "/hrms" },
+      { label: "CMS", to: "/contact" },
+    ],
+  },
+  {
+    title: "Resources",
     links: [
       { label: "Blog", to: "/about" },
-      { label: "Documentation", to: "/features" },
-      { label: "Changelog", to: "/features" },
+      { label: "Case Studies", to: "/#case-studies" },
       { label: "Careers", to: "/about" },
+      { label: "Knowledge Base", to: "/knowledgebase" },
+      { label: "Products Update", to: "/products-update" },
     ],
   },
   {

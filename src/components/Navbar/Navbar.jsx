@@ -136,22 +136,22 @@ export default function Navbar() {
       <div className="announcement-bar">
         <div className="announcement-track">
           <span>
-             Start Your 14-Day Free Trial Today 
+             Start Your 14-Days Free Trial Today 
           </span>
           <span>
-             Start Your 14-Day Free Trial Today 
+             Start Your 14-Days Free Trial Today 
           </span>
           <span>
-             Start Your 14-Day Free Trial Today 
+             Start Your 14-Days Free Trial Today 
           </span>
           <span>
-             Start Your 14-Day Free Trial Today 
+             Start Your 14-Days Free Trial Today 
           </span>
           <span>
-             Start Your 14-Day Free Trial Today
+             Start Your 14-Days Free Trial Today
           </span>
           <span>
-             Start Your 14-Day Free Trial Today
+             Start Your 14-Days Free Trial Today
           </span>
         </div>
       </div>
