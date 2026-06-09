@@ -1,6 +1,7 @@
 import Hero from "../../components/Hero/Hero.jsx";
 import LogoMarquee from "../../components/LogoMarquee/LogoMarquee.jsx";
 import FeaturesTabs from "../../components/FeaturesTabs/FeaturesTabs.jsx";
+import IndustryTabs from "../../components/IndustryTabs/IndustryTabs.jsx";
 import Dashboard from "../../components/Dashboard/Dashboard.jsx";
 import Counters from "../../components/Counters/Counters.jsx";
 import Testimonials from "../../components/Testimonials/Testimonials.jsx";
@@ -16,6 +17,7 @@ export default function Home() {
     <>
       <Hero />
       <LogoMarquee />
+      <IndustryTabs />
       <FeaturesTabs />
       <Dashboard />
       {/* <Counters /> */}

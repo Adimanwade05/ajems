@@ -1,21 +1,30 @@
+import { useState, useEffect } from "react";
 import "./ShowcaseFrame.css";
-import showcaseVideo from "../../assets/videos/showcase.mp4";
+import vid from "../../assets/videos/showcase.mp4";
 
-export default function ShowcaseFrame() {
+export default function ShowcaseFrame({ videoRef }) {
+  const [showControls, setShowControls] = useState(false);
+
+  useEffect(() => {
+    const v = videoRef?.current;
+    if (!v) return;
+    const onPlay = () => setShowControls(true);
+    v.addEventListener("play", onPlay);
+    return () => v.removeEventListener("play", onPlay);
+  }, [videoRef]);
+
   return (
     <div className="showcase">
-      {/* video */}
-      <div className="showcase__screen">
-        <video
-          className="showcase__video"
-          src={showcaseVideo}
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-        />
-      </div>
+      <video
+        ref={videoRef}
+        className="showcase__video"
+        src={vid}
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        controls={showControls}
+      />
     </div>
   );
 }

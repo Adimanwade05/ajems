@@ -174,7 +174,7 @@ svg {
 
 .btn-primary {
   background: var(--cta-color);
-  color: var(--white);
+  color: var(--primary-bg-deep);
   box-shadow: var(--shadow-cta);
 }
 
