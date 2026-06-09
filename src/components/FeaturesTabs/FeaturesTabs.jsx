@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import "./FeaturesTabs.css";
 
 import img1 from "../../assets/images/1.avif";
 import img2 from "../../assets/images/2.avif";
 import img3 from "../../assets/images/3.avif";
+import fea1 from "../../assets/videos/fea1.mp4";
 
 const items = [
   {
@@ -29,13 +30,21 @@ const items = [
     id: "Education",
     label: "Education",
     desc: "Manage admissions, student records, staff operations, approvals, communication, and reporting through a unified system",
-    img: img1,
+    video: fea1,
   },
 ];
 
 export default function FeaturesTabs() {
   const [active, setActive] = useState(0);
   const item = items[active];
+
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setActive((prev) => (prev + 1) % items.length);
+  //   }, 18000);
+
+  //   return () => clearInterval(interval);
+  // }, []);
 
   return (
     <section className="features section" id="features">
@@ -96,11 +105,22 @@ export default function FeaturesTabs() {
                 exit={{ opacity: 0, y: "-100%" }}
                 transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
               >
-                <img
-                  className="features__img"
-                  src={item.img}
-                  alt={item.label}
-                />
+                {item.video ? (
+                  <video
+                    className="features__img"
+                    src={item.video}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                  />
+                ) : (
+                  <img
+                    className="features__img"
+                    src={item.img}
+                    alt={item.label}
+                  />
+                )}
               </motion.div>
             </AnimatePresence>
           </div>

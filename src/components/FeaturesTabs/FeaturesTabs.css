@@ -25,9 +25,11 @@
 }
 
 .features__sub {
-  font-family: var(--font-body);   /* Inter */
+  font-family: var(--font-body);
+  /* Inter */
   color: #6b7280;
-  font-size: var(--fs-xs);          /* sm se xs — chhota */
+  font-size: var(--fs-xs);
+  /* sm se xs — chhota */
   line-height: 1.6;
   max-width: 46ch;
   margin: var(--space-4) 0 var(--space-5);
@@ -87,9 +89,10 @@
 }
 
 .features__item-desc {
-  font-family: var(--font-body);   /* Inter */
+  font-family: var(--font-body);
+  /* Inter */
   color: #6b7280;
-  font-size: var(--fs-xs);          
+  font-size: var(--fs-xs);
   font-weight: 400;
   line-height: 1.6;
   max-width: 48ch;
@@ -115,6 +118,32 @@
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+.features__item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--secondary-blue);
+  transform: scaleY(0);
+  transform-origin: top;
+}
+
+.features__item.is-active::before {
+  animation: progressLine 5s linear forwards;
+}
+
+@keyframes progressLine {
+  from {
+    transform: scaleY(0);
+  }
+
+  to {
+    transform: scaleY(1);
+  }
 }
 
 @media (max-width: 880px) {
