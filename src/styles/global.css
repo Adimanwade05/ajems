@@ -114,8 +114,8 @@ svg {
 
 .section-title {
   font-size: 44px;
-  font-weight: 400;            /* weight */
-  max-width: 28ch;
+  font-weight: 400;
+  max-width: 52ch;
 }
 
 .section-title.centered {

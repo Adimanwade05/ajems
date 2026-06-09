@@ -52,10 +52,10 @@ const menu = [
   { label: "Features", to: "/features" },
   { label: "Pricing", to: "/pricing" },
   {
-    label: "Knowledge Base",
+    label: "Knowledge Hub",
     dropdown: [
       {
-        label: "Knowledge Hub",
+        label: "Knowledge Base ",
         desc: "Guides, docs and tutorials",
         to: "/features",
         Icon: BookOpen,
@@ -136,22 +136,22 @@ export default function Navbar() {
       <div className="announcement-bar">
         <div className="announcement-track">
           <span>
-             Start Your 14-Day Free Trial Today — No Credit Card Required
+             Start Your 14-Day Free Trial Today 
           </span>
           <span>
-             Start Your 14-Day Free Trial Today — No Credit Card Required
+             Start Your 14-Day Free Trial Today 
           </span>
           <span>
-             Start Your 14-Day Free Trial Today — No Credit Card Required
+             Start Your 14-Day Free Trial Today 
           </span>
           <span>
-             Start Your 14-Day Free Trial Today — No Credit Card Required
+             Start Your 14-Day Free Trial Today 
           </span>
           <span>
-             Start Your 14-Day Free Trial Today — No Credit Card Required
+             Start Your 14-Day Free Trial Today
           </span>
           <span>
-             Start Your 14-Day Free Trial Today — No Credit Card Required
+             Start Your 14-Day Free Trial Today
           </span>
         </div>
       </div>
@@ -224,7 +224,7 @@ export default function Navbar() {
 
           <div className="navbar__actions">
             <Link to="/contact" className="btn btn-secondary navbar__cta">
-              14 Day Free Trial
+              14 Days Free Trial
             </Link>
             <Link to="/contact" className="btn btn-primary navbar__cta">
               Sign Up

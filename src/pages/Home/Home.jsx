@@ -18,7 +18,7 @@ export default function Home() {
       <Hero />
       <LogoMarquee />
       <IndustryTabs />
-      <FeaturesTabs />
+      {/* <FeaturesTabs /> */}
       <Dashboard />
       {/* <Counters /> */}
       {/* <Testimonials /> */}
