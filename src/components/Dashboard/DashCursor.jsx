@@ -1,12 +1,15 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./DashCursor.css";
 
 export default function DashCursor({ containerRef }) {
   const dotRef = useRef(null);
+  const labelRef = useRef(null);
+  const [hint, setHint] = useState("");
 
   useEffect(() => {
     const el = containerRef.current;
     const dot = dotRef.current;
+    const label = labelRef.current;
     if (!el || !dot) return;
 
     let x = 0, y = 0, tx = 0, ty = 0, raf;
@@ -17,9 +20,26 @@ export default function DashCursor({ containerRef }) {
       ty = e.clientY - r.top;
       dot.style.opacity = "1";
     };
-    const leave = () => (dot.style.opacity = "0");
-    const enterBtn = () => dot.classList.add("is-active");
-    const leaveBtn = () => dot.classList.remove("is-active");
+    const leave = () => {
+      dot.style.opacity = "0";
+      setHint("");
+    };
+
+    const enterBtn = (e) => {
+      dot.classList.add("is-active");
+      // sidebar navitem pe hover → hint dikhao
+      if (e.currentTarget.classList.contains("dash__navitem")) {
+        setHint("Click to explore");
+      } else if (e.currentTarget.classList.contains("dash__upgrade-btn")) {
+        setHint("Start free trial");
+      } else {
+        setHint("Click");
+      }
+    };
+    const leaveBtn = () => {
+      dot.classList.remove("is-active");
+      setHint("");
+    };
 
     const loop = () => {
       x += (tx - x) * 0.18;
@@ -43,5 +63,13 @@ export default function DashCursor({ containerRef }) {
     };
   }, [containerRef]);
 
-  return <span ref={dotRef} className="dash-cursor" aria-hidden="true" />;
+  return (
+    <span ref={dotRef} className="dash-cursor" aria-hidden="true">
+      {hint && (
+        <span ref={labelRef} className="dash-cursor__hint">
+          {hint}
+        </span>
+      )}
+    </span>
+  );
 }

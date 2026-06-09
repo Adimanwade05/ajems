@@ -1,23 +1,21 @@
-.dash-cursor {
+.dash-cursor__hint {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  border: 2px solid var(--cta-color);
-  background: rgba(106, 235, 201, 0.12);
-  box-shadow: 0 0 18px rgba(106, 235, 201, 0.6);
+  top: -36px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.95);
+  color: #060d1e;
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+  padding: 4px 10px;
+  border-radius: 20px;
   pointer-events: none;
-  opacity: 0;
-  z-index: 50;
-  transition: width 0.25s var(--ease-out), height 0.25s var(--ease-out),
-    background 0.25s var(--ease-soft), opacity 0.25s;
-  mix-blend-mode: screen;
+  animation: hintIn 0.2s ease forwards;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.15);
 }
 
-.dash-cursor.is-active {
-  width: 46px;
-  height: 46px;
-  background: rgba(106, 235, 201, 0.22);
+@keyframes hintIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(4px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
 }
