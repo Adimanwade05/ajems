@@ -3,6 +3,7 @@
   overflow: hidden;
   background: linear-gradient(180deg, #0a1838, #061127);
   border: 1px solid var(--glass-border);
+  line-height: 0;
 }
 
 .showcase__screen {
