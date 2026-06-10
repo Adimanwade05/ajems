@@ -17,6 +17,7 @@ const industries = [
 
 export default function IndustryTabs() {
   const [active, setActive] = useState(0);
+  const [dir, setDir] = useState(0);
   const [isDesktop, setIsDesktop] = useState(true);
 
   useEffect(() => {
@@ -26,9 +27,15 @@ export default function IndustryTabs() {
     return () => window.removeEventListener("resize", check);
   }, []);
 
-  // desktop: 50% slides + 25% offset (side peek). else: 100% + 0 (single centered)
-  const slidePct = isDesktop ? 50 : 100;
-  const offset = isDesktop ? 25 : 0;
+  const total = industries.length;
+
+  // direction-aware (wrap shortest path)
+  const goTo = (i) => {
+    let d = i - active;
+    if (Math.abs(d) > total / 2) d = d > 0 ? d - total : d + total;
+    setDir(d >= 0 ? 1 : -1);
+    setActive(i);
+  };
 
   const renderMedia = (item) =>
     item.video ? (
@@ -38,6 +45,13 @@ export default function IndustryTabs() {
     ) : (
       <img src={item.img} alt={item.label} />
     );
+
+  // desktop wrap-around: -2..+2 around active
+  const visible = [];
+  for (let off = -2; off <= 2; off++) {
+    const idx = (active + off + total) % total;
+    visible.push({ ...industries[idx], realIndex: idx, pos: off });
+  }
 
   return (
     <section className="industry section">
@@ -55,8 +69,8 @@ export default function IndustryTabs() {
               <button
                 key={it.id}
                 className={`industry__tab ${i === active ? "is-active" : ""}`}
-                onClick={() => setActive(i)}
-                onMouseEnter={() => isDesktop && setActive(i)}
+                onClick={() => goTo(i)}
+                onMouseEnter={() => isDesktop && goTo(i)}
               >
                 {it.label}
               </button>
@@ -64,32 +78,59 @@ export default function IndustryTabs() {
           </div>
         </div>
 
-        {/* full-width sliding track */}
-        <div className="industry__viewport">
-          <motion.div
-            className={`industry__track ${isDesktop ? "" : "is-single"}`}
-            animate={{ x: `calc(${-active * slidePct}% + ${offset}%)` }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            drag="x"
-            dragConstraints={{ left: 0, right: 0 }}
-            dragElastic={0.18}
-            onDragEnd={(e, info) => {
-              if (info.offset.x < -60 && active < industries.length - 1)
-                setActive(active + 1);
-              else if (info.offset.x > 60 && active > 0) setActive(active - 1);
-            }}
-          >
-            {industries.map((it, i) => (
-              <div
-                key={it.id}
-                className={`industry__slide ${i === active ? "is-active" : ""}`}
-                onClick={() => setActive(i)}
+        {/* ===== DESKTOP: wrap-around directional slide ===== */}
+        {isDesktop ? (
+          <div className="industry__stage">
+            {visible.map((it) => (
+              <motion.div
+                key={`${it.id}-${it.pos}`}
+                className={`industry__card ${it.pos === 0 ? "is-active" : ""}`}
+                onClick={() => goTo(it.realIndex)}
+                initial={{
+                  x: `${(it.pos + dir) * 100}%`,
+                  scale: 0.86,
+                  opacity: 0.2,
+                }}
+                animate={{
+                  x: `${it.pos * 100}%`,
+                  scale: it.pos === 0 ? 1 : 0.86,
+                  opacity:
+                    it.pos === 0 ? 1 : Math.abs(it.pos) === 1 ? 0.45 : 0.18,
+                  zIndex: 10 - Math.abs(it.pos),
+                }}
+                transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
               >
                 <div className="industry__media">{renderMedia(it)}</div>
-              </div>
+              </motion.div>
             ))}
-          </motion.div>
-        </div>
+          </div>
+        ) : (
+          /* ===== MOBILE: single active, slide + swipe ===== */
+          <div className="industry__viewport">
+            <motion.div
+              className="industry__track is-single"
+              animate={{ x: `${-active * 100}%` }}
+              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={0.18}
+              onDragEnd={(e, info) => {
+                if (info.offset.x < -60 && active < total - 1) goTo(active + 1);
+                else if (info.offset.x > 60 && active > 0) goTo(active - 1);
+              }}
+            >
+              {industries.map((it, i) => (
+                <div
+                  key={it.id}
+                  className={`industry__slide ${i === active ? "is-active" : ""}`}
+                  onClick={() => goTo(i)}
+                >
+                  <div className="industry__media">{renderMedia(it)}</div>
+                </div>
+              ))}
+            </motion.div>
+          </div>
+        )}
       </div>
     </section>
   );

@@ -6,7 +6,6 @@ import {
   FaXTwitter,
   FaLinkedin,
 } from "react-icons/fa6";
-import TextHoverEffect from "./TextHoverEffect.jsx";
 import "./Footer.css";
 
 const navigation = [
@@ -22,6 +21,13 @@ const services = [
   { label: "ERP", to: "/erp" },
   { label: "HRMS", to: "/hrms" },
   { label: "CMS", to: "/contact" },
+];
+
+const legal = [
+  { label: "Privacy Policy", to: "/privacy" },
+  { label: "Terms of Service", to: "/terms" },
+  { label: "Cookie Policy", to: "/cookies" },
+  { label: "Refund Policy", to: "/refund" },
 ];
 
 const socials = [
@@ -55,6 +61,20 @@ export default function Footer() {
             One platform for CRM, ERP, HRMS and CMS — built to help modern teams
             automate work and scale without code.
           </p>
+
+          {/* social icons under brand */}
+          <div className="footer__socials">
+            {socials.map((s) => (
+              <a
+                key={s.label}
+                href={s.to}
+                className="footer__social"
+                aria-label={s.label}
+              >
+                <s.Icon size={16} />
+              </a>
+            ))}
+          </div>
         </div>
 
         <div className="footer__col">
@@ -69,22 +89,20 @@ export default function Footer() {
         </div>
 
         <div className="footer__col">
-          <h4>Follow us</h4>
+          <h4>Services</h4>
           <ul>
-            {socials.map((s) => (
-              <li key={s.label}>
-                <a href={s.to} className="footer__sociallink">
-                  <s.Icon size={15} /> {s.label}
-                </a>
+            {services.map((l) => (
+              <li key={l.label}>
+                <Link to={l.to}>{l.label}</Link>
               </li>
             ))}
           </ul>
         </div>
 
         <div className="footer__col">
-          <h4>Services</h4>
+          <h4>Legal</h4>
           <ul>
-            {services.map((l) => (
+            {legal.map((l) => (
               <li key={l.label}>
                 <Link to={l.to}>{l.label}</Link>
               </li>
@@ -104,9 +122,9 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* giant animated brand text */}
-      <div className="footer__giant">
-        <TextHoverEffect text="AJEMS" duration={0.3} />
+      {/* giant brand text */}
+      <div className="footer__giant" aria-hidden="true">
+        AJEMS
       </div>
 
       {/* copyright */}

@@ -38,7 +38,7 @@
       color: #fff;
 }
 
-/* ===== Tabs (always center + wrap, no scroll) ===== */
+/* ===== Tabs (center + wrap) ===== */
 .industry__tabs {
       display: flex;
       flex-wrap: wrap;
@@ -79,7 +79,29 @@
       font-weight: 500;
 }
 
-/* ===== Sliding viewport + track ===== */
+/* ===== DESKTOP stage (wrap-around peek) ===== */
+.industry__stage {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: clamp(280px, 30vw, 460px);
+      margin-top: var(--space-6);
+      overflow: hidden;
+}
+
+.industry__card {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 46%;
+      height: 100%;
+      margin-left: -23%;
+      /* center the 46% card (= -width/2) */
+      cursor: pointer;
+      will-change: transform;
+}
+
+/* ===== MOBILE viewport (single) ===== */
 .industry__viewport {
       position: relative;
       z-index: 1;
@@ -91,7 +113,6 @@
 .industry__track {
       display: flex;
       align-items: center;
-      will-change: transform;
       cursor: grab;
 }
 
@@ -99,38 +120,25 @@
       cursor: grabbing;
 }
 
-/* desktop slide — 50% (side peek) */
-.industry__slide {
-      flex: 0 0 50%;
-      max-width: 50%;
-      padding: 0 clamp(0.6rem, 1.5vw, 1.4rem);
-      cursor: pointer;
-      opacity: 0.4;
-      transform: scale(0.9);
-      transition: opacity 0.5s var(--ease-soft),
-            transform 0.5s var(--ease-out);
-}
-
-.industry__slide.is-active {
-      opacity: 1;
-      transform: scale(1);
-}
-
-/* single mode (tablet/mobile) — slide exactly 100%, centered */
 .industry__track.is-single .industry__slide {
       flex: 0 0 100%;
       max-width: 100%;
-      padding: 0;
+      box-sizing: border-box;
+      padding: 0 clamp(1rem, 5vw, 2rem);
+      /* gap slide padding se (overflow safe) */
       opacity: 1;
-      transform: scale(1);
 }
 
 .industry__track.is-single .industry__media {
-      margin: 0 clamp(1rem, 5vw, 2.5rem);
+      width: 100%;
+      height: auto;
+      margin: 0;
 }
 
-/* media frame */
+/* ===== Media frame ===== */
 .industry__media {
+      width: 100%;
+      height: 100%;
       border-radius: var(--radius-lg);
       overflow: hidden;
       padding: 8px;
@@ -140,14 +148,14 @@
       backdrop-filter: blur(16px);
 }
 
-.industry__slide.is-active .industry__media {
+.industry__card.is-active .industry__media {
       box-shadow: 0 30px 70px rgba(4, 11, 27, 0.5);
 }
 
 .industry__media img,
 .industry__video {
       width: 100%;
-      height: auto;
+      height: 100%;
       display: block;
       border-radius: var(--radius-md);
       aspect-ratio: 16 / 9;
@@ -155,9 +163,9 @@
       pointer-events: none;
 }
 
-/* ===== Mobile media gap ===== */
+/* ===== Mobile tweaks ===== */
 @media (max-width: 768px) {
-      .industry__track.is-single .industry__media {
-            margin: 0 var(--space-4);
+      .industry__track.is-single .industry__slide {
+            padding: 0 var(--space-4);
       }
 }

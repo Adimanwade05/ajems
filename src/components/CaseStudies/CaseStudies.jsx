@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
   ShoppingBag,
@@ -59,8 +59,39 @@ const studies = [
   },
 ];
 
+// 3x clone for infinite peek both sides
+const loopStudies = [...studies, ...studies, ...studies];
+
 export default function CaseStudies() {
   const trackRef = useRef(null);
+
+  // start in the middle set so cards peek on both sides
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
+    const card = track.querySelector(".case");
+    if (!card) return;
+    const gap = parseInt(getComputedStyle(track).columnGap || "0", 10);
+    const cardW = card.offsetWidth + gap;
+    track.scrollLeft = cardW * studies.length;
+  }, []);
+
+  // infinite loop — when reaching clone edges, jump back to middle set
+  const handleScroll = () => {
+    const track = trackRef.current;
+    if (!track) return;
+    const card = track.querySelector(".case");
+    if (!card) return;
+    const gap = parseInt(getComputedStyle(track).columnGap || "0", 10);
+    const cardW = card.offsetWidth + gap;
+    const setWidth = cardW * studies.length;
+
+    if (track.scrollLeft <= cardW * 0.5) {
+      track.scrollLeft += setWidth;
+    } else if (track.scrollLeft >= setWidth * 2 + cardW * 0.5) {
+      track.scrollLeft -= setWidth;
+    }
+  };
 
   const scrollByCard = (dir) => {
     const track = trackRef.current;
@@ -75,25 +106,22 @@ export default function CaseStudies() {
     <section className="cases section" id="case-studies">
       <div className="container">
         <SectionHeading
-         
           title="The Impact of One Connected Platform"
           subtitle="Discover how businesses streamline operations, improve productivity, and achieve measurable growth with AJEMS."
         />
       </div>
 
-      {/* full-width manual carousel */}
+      {/* full-width infinite carousel */}
       <div className="cases__viewport">
-        <div className="cases__track" ref={trackRef}>
-          {studies.map((s, i) => (
+        <div className="cases__track" ref={trackRef} onScroll={handleScroll}>
+          {loopStudies.map((s, i) => (
             <article className={`case case--${s.variant}`} key={i}>
               {/* content — 40% */}
               <div className="case__body">
-                {/* TOP — tag */}
                 <span className="case__tag">
                   <s.Icon size={14} strokeWidth={2} /> {s.tag}
                 </span>
 
-                {/* BOTTOM — metric/quote + button */}
                 <div className="case__bottom">
                   {s.metric ? (
                     <div className="case__metric-wrap">
@@ -116,7 +144,7 @@ export default function CaseStudies() {
                 </div>
               </div>
 
-              {/* image — 60% square */}
+              {/* image — 60% */}
               <div className="case__media">
                 <img src={s.img} alt={s.tag} />
               </div>
@@ -125,7 +153,7 @@ export default function CaseStudies() {
         </div>
       </div>
 
-      {/* arrows only */}
+      {/* arrows */}
       <div className="container">
         <div className="cases__controls">
           <button
