@@ -138,7 +138,7 @@ export default function Navbar() {
   return (
     <>
       {/* ✅ announcement-bar wrapper added, track inside it */}
-      <div className="announcement-bar">
+      {/* <div className="announcement-bar">
         <div className="announcement-track">
           {Array(12)
             .fill("Start Your 14-Days Free Trial Today")
@@ -146,7 +146,7 @@ export default function Navbar() {
               <span key={i}>{text}</span>
             ))}
         </div>
-      </div>
+      </div> */}
 
       <header className={`navbar ${scrolled ? "navbar--scrolled" : ""}`}>
         <div className="navbar__inner container">
