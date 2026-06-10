@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import "./IndustryTabs.css";
 
@@ -17,6 +17,33 @@ const industries = [
 
 export default function IndustryTabs() {
   const [active, setActive] = useState(0);
+  const [isDesktop, setIsDesktop] = useState(true);
+  const tabsRef = useRef(null);
+
+  // responsive detection
+  useEffect(() => {
+    const check = () => setIsDesktop(window.innerWidth > 1024);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
+  // desktop: 50% slides + 25% offset (side peek). else: 100% + 0 (single centered)
+  const slidePct = isDesktop ? 50 : 100;
+  const offset = isDesktop ? 25 : 0;
+
+  // scroll active tab into center
+  useEffect(() => {
+    const tabsEl = tabsRef.current;
+    if (!tabsEl) return;
+    const btn = tabsEl.querySelectorAll(".industry__tab")[active];
+    if (btn)
+      btn.scrollIntoView({
+        behavior: "smooth",
+        inline: "center",
+        block: "nearest",
+      });
+  }, [active]);
 
   const renderMedia = (item) =>
     item.video ? (
@@ -38,12 +65,16 @@ export default function IndustryTabs() {
             One Platform. Unlimited Industry Possibilities.
           </h2>
 
-          <div className="industry__tabs">
+          <div
+            className={`industry__tabs ${isDesktop ? "is-center" : ""}`}
+            ref={tabsRef}
+          >
             {industries.map((it, i) => (
               <button
                 key={it.id}
                 className={`industry__tab ${i === active ? "is-active" : ""}`}
                 onClick={() => setActive(i)}
+                onMouseEnter={() => isDesktop && setActive(i)}
               >
                 {it.label}
               </button>
@@ -54,9 +85,17 @@ export default function IndustryTabs() {
         {/* full-width sliding track */}
         <div className="industry__viewport">
           <motion.div
-            className="industry__track"
-            animate={{ x: `calc(${-active * 50}% + 25%)` }}
+            className={`industry__track ${isDesktop ? "" : "is-single"}`}
+            animate={{ x: `calc(${-active * slidePct}% + ${offset}%)` }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            drag="x"
+            dragConstraints={{ left: 0, right: 0 }}
+            dragElastic={0.18}
+            onDragEnd={(e, info) => {
+              if (info.offset.x < -60 && active < industries.length - 1)
+                setActive(active + 1);
+              else if (info.offset.x > 60 && active > 0) setActive(active - 1);
+            }}
           >
             {industries.map((it, i) => (
               <div
