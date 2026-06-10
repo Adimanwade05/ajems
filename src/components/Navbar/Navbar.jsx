@@ -105,6 +105,11 @@ const menu = [
         desc: "Get in touch with us",
         to: "/contact",
         Icon: Mail,
+      },{
+        label: "Careers",
+        desc: "Join our team",
+        to: "/careers",
+        Icon: UserCheck,
       },
     ],
   },
