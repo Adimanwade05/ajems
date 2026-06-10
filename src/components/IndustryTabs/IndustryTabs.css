@@ -38,28 +38,14 @@
       color: #fff;
 }
 
-/* ===== Tabs ===== */
+/* ===== Tabs (always center + wrap, no scroll) ===== */
 .industry__tabs {
       display: flex;
-      flex-wrap: nowrap;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: var(--space-2);
       margin: var(--space-6) auto var(--space-2);
-      max-width: 100%;
-      overflow-x: auto;
-      scrollbar-width: none;
-      -webkit-overflow-scrolling: touch;
-      padding-bottom: 4px;
-      scroll-padding-inline: 50%;
-}
-
-.industry__tabs::-webkit-scrollbar {
-      display: none;
-}
-
-/* desktop: tabs centered */
-.industry__tabs.is-center {
-      justify-content: center;
-      flex-wrap: wrap;
+      max-width: 720px;
 }
 
 .industry__tab {

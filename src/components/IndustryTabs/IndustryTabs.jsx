@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import "./IndustryTabs.css";
 
@@ -18,9 +18,7 @@ const industries = [
 export default function IndustryTabs() {
   const [active, setActive] = useState(0);
   const [isDesktop, setIsDesktop] = useState(true);
-  const tabsRef = useRef(null);
 
-  // responsive detection
   useEffect(() => {
     const check = () => setIsDesktop(window.innerWidth > 1024);
     check();
@@ -31,19 +29,6 @@ export default function IndustryTabs() {
   // desktop: 50% slides + 25% offset (side peek). else: 100% + 0 (single centered)
   const slidePct = isDesktop ? 50 : 100;
   const offset = isDesktop ? 25 : 0;
-
-  // scroll active tab into center
-  useEffect(() => {
-    const tabsEl = tabsRef.current;
-    if (!tabsEl) return;
-    const btn = tabsEl.querySelectorAll(".industry__tab")[active];
-    if (btn)
-      btn.scrollIntoView({
-        behavior: "smooth",
-        inline: "center",
-        block: "nearest",
-      });
-  }, [active]);
 
   const renderMedia = (item) =>
     item.video ? (
@@ -65,10 +50,7 @@ export default function IndustryTabs() {
             One Platform. Unlimited Industry Possibilities.
           </h2>
 
-          <div
-            className={`industry__tabs ${isDesktop ? "is-center" : ""}`}
-            ref={tabsRef}
-          >
+          <div className="industry__tabs">
             {industries.map((it, i) => (
               <button
                 key={it.id}
