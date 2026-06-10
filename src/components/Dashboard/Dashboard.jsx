@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import DashCursor from "./DashCursor.jsx";
 import {
   LayoutDashboard,
   FolderKanban,
@@ -23,6 +22,7 @@ import {
   FileBarChart,
   FlaskConical,
   Download,
+  MousePointerClick,
 } from "lucide-react";
 import SectionHeading from "../Common/SectionHeading.jsx";
 import logo from "../../assets/images/ajems_logo.png";
@@ -228,6 +228,7 @@ function Panel({ active }) {
 
 export default function Dashboard() {
   const [active, setActive] = useState("dashboard");
+  const [explored, setExplored] = useState(false);
   const core = menu.filter((m) => m.group === "core");
   const tools = menu.filter((m) => m.group === "tools");
 
@@ -240,12 +241,35 @@ export default function Dashboard() {
         />
 
         <motion.div
-          className="dash__shell glass"
+          className={`dash__shell glass ${explored ? "is-explored" : ""}`}
           initial={{ opacity: 0, y: 50, rotateX: 6 }}
           whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
         >
+          {/* ===== Glass overlay ===== */}
+          <AnimatePresence>
+            {!explored && (
+              <motion.button
+                className="dash__overlay"
+                onClick={() => setExplored(true)}
+                onMouseEnter={() => setExplored(true)}
+                initial={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                aria-label="Explore dashboard"
+              >
+                <span className="dash__overlay-inner">
+                  <span className="dash__overlay-ico">
+                    <MousePointerClick size={26} strokeWidth={2} />
+                  </span>
+                  <strong>Click to explore dashboard</strong>
+                  <small>See how AJEMS brings everything together</small>
+                </span>
+              </motion.button>
+            )}
+          </AnimatePresence>
+
           {/* sidebar */}
           <aside className="dash__sidebar">
             <img src={logo} alt="AJEMS" className="dash__logo" />
