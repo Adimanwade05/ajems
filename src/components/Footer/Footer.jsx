@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import logo from "../../assets/images/ajems_logo.png";
+import footerText from "../../assets/logos/footer_text.svg";
 import {
   FaFacebook,
   FaInstagram,
@@ -122,9 +123,9 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* giant brand text */}
+      {/* giant SVG brand text */}
       <div className="footer__giant" aria-hidden="true">
-        AJEMS
+        <img src={footerText} alt="" />
       </div>
 
       {/* copyright */}
