@@ -48,7 +48,7 @@ const menu = [
       },
     ],
   },
-  { label: "Industry", to: "/about" },
+  { label: "Industries", to: "/Industries" },
   { label: "Features", to: "/features" },
   { label: "Pricing", to: "/pricing" },
   {
