@@ -30,14 +30,19 @@
 }
 
 @keyframes marquee {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 /* ===== Navbar ===== */
 .navbar {
   position: fixed;
-  top: 28px; 
+  top: 28px;
   left: 0;
   right: 0;
   z-index: 100;
@@ -150,7 +155,7 @@
   flex-direction: column;
   gap: 2px;
   z-index: 50;
-  
+
 }
 
 .navbar__drop-item {
@@ -172,7 +177,7 @@
   backdrop-filter: blur(40px) saturate(180%);
   border: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4),
-              inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 .navbar__drop-ico {
@@ -319,5 +324,13 @@
   .navbar__drawer-cta {
     margin-top: var(--space-3);
     width: 100%;
+  }
+
+  .navbar__actions .navbar__cta {
+    display: none;
+  }
+
+  .navbar__actions {
+    margin-left: auto;
   }
 }

@@ -135,24 +135,12 @@ export default function Navbar() {
       {/* ✅ announcement-bar wrapper added, track inside it */}
       <div className="announcement-bar">
         <div className="announcement-track">
-          <span>
-             Start Your 14-Days Free Trial Today 
-          </span>
-          <span>
-             Start Your 14-Days Free Trial Today 
-          </span>
-          <span>
-             Start Your 14-Days Free Trial Today 
-          </span>
-          <span>
-             Start Your 14-Days Free Trial Today 
-          </span>
-          <span>
-             Start Your 14-Days Free Trial Today
-          </span>
-          <span>
-             Start Your 14-Days Free Trial Today
-          </span>
+          <span>Start Your 14-Days Free Trial Today</span>
+          <span>Start Your 14-Days Free Trial Today</span>
+          <span>Start Your 14-Days Free Trial Today</span>
+          <span>Start Your 14-Days Free Trial Today</span>
+          <span>Start Your 14-Days Free Trial Today</span>
+          <span>Start Your 14-Days Free Trial Today</span>
         </div>
       </div>
 
