@@ -233,6 +233,9 @@
     width: 92vw;
     transform: none !important;
   }
+   .hero__title {
+    font-size: clamp(1.8rem, 7vw, 2.4rem);
+  }
 }
 
 @media (max-width: 480px) {
