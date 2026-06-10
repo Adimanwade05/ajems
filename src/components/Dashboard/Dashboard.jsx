@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import TrialModal from "../Common/TrialModal.jsx";
 import {
   LayoutDashboard,
   FolderKanban,
@@ -229,6 +230,7 @@ function Panel({ active }) {
 export default function Dashboard() {
   const [active, setActive] = useState("dashboard");
   const [explored, setExplored] = useState(false);
+  const [trialOpen, setTrialOpen] = useState(false);
   const core = menu.filter((m) => m.group === "core");
   const tools = menu.filter((m) => m.group === "tools");
 
@@ -306,7 +308,10 @@ export default function Dashboard() {
               <span className="dash__upgrade-sub">
                 Unlock AI agents &amp; unlimited apps
               </span>
-              <button className="dash__upgrade-btn">
+              <button
+                className="dash__upgrade-btn"
+                onClick={() => setTrialOpen(true)}
+              >
                 Start 14-day free trial
               </button>
             </div>
@@ -338,6 +343,9 @@ export default function Dashboard() {
           </div>
         </motion.div>
       </div>
+
+      {/* trial signup modal */}
+      <TrialModal open={trialOpen} onClose={() => setTrialOpen(false)} />
     </section>
   );
 }
