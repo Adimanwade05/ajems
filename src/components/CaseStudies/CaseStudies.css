@@ -1,16 +1,16 @@
 /* ===== Full-width manual carousel ===== */
 .cases__viewport {
   width: 100%;
-  padding-left: 40px;
   overflow: hidden;
 }
 
 .cases__track {
   display: flex;
   gap: var(--space-6);
-  padding: var(--space-3) var(--space-6);
+  padding: var(--space-3) clamp(1rem, 4vw, 3rem);
   overflow-x: auto;
   scroll-snap-type: x mandatory;
+  scroll-padding-left: clamp(1rem, 4vw, 3rem);
   scrollbar-width: none;
 }
 
@@ -18,9 +18,9 @@
   display: none;
 }
 
-
+/* ===== Card ===== */
 .case {
-  flex: 0 0 calc((100% - (var(--space-6) * 2)) / 2.5);   /* 3.5 se 2.5 — cards chaude */
+  flex: 0 0 calc((100% - (var(--space-6) * 2)) / 2.5);
   scroll-snap-align: start;
   display: grid;
   grid-template-columns: 40% 60%;
@@ -31,10 +31,9 @@
   box-shadow: 0 20px 50px rgba(4, 11, 27, 0.4);
 }
 
-
 /* ===== Variants ===== */
 .case--gradient-blue {
-  background: linear-gradient(135deg, #1D4DD7, #0F2871);
+  background: linear-gradient(135deg, #1d4dd7, #0f2871);
   color: #fff;
 }
 
@@ -56,10 +55,9 @@
   padding: var(--space-5);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;   /* tag upar, content neeche */
+  justify-content: space-between;
   gap: var(--space-3);
 }
-
 
 .case__tag {
   display: inline-flex;
@@ -74,6 +72,12 @@
   border: 1px solid rgba(255, 255, 255, 0.22);
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
+}
+
+.case__bottom {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
 }
 
 .case__metric-wrap {
@@ -136,10 +140,10 @@
   gap: var(--space-3);
 }
 
-/* ===== Image (60%, square) ===== */
+/* ===== Image (60%) ===== */
 .case__media {
   position: relative;
-  height: 100%; 
+  height: 100%;
   overflow: hidden;
 }
 
@@ -170,6 +174,7 @@
   border: 1px solid var(--glass-border);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
+  cursor: pointer;
   transition: transform var(--t-base) var(--ease-out),
     border-color var(--t-base) var(--ease-soft),
     background var(--t-base) var(--ease-soft);
@@ -182,19 +187,43 @@
 }
 
 /* ===== Responsive ===== */
-@media (max-width: 980px) {
+@media (max-width: 1024px) {
   .case {
-    flex: 0 0 70%;
+    flex: 0 0 60%;
+    grid-template-columns: 40% 60%;
   }
 }
 
-@media (max-width: 640px) {
-  .case {
-    flex: 0 0 85%;
-    grid-template-columns: 1fr;
+@media (max-width: 768px) {
+  .cases__track {
+    padding: var(--space-3) var(--space-4);
+    scroll-padding-left: var(--space-4);
+    gap: var(--space-4);
   }
+
+  .case {
+    flex: 0 0 82%;
+    grid-template-columns: 1fr;
+    height: auto;
+    border-width: 2px;
+  }
+
   .case__media {
-    aspect-ratio: 16 / 10;
+    height: 180px;
     order: -1;
+  }
+
+  .case__body {
+    padding: var(--space-4);
+  }
+}
+
+@media (max-width: 480px) {
+  .case {
+    flex: 0 0 88%;
+  }
+
+  .case__media {
+    height: 160px;
   }
 }
