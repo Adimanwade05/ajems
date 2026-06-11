@@ -2,7 +2,7 @@ import { useRef, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import cornerImg from "../../assets/images/glow.svg";
-import videoThumb from "../../assets/images/videothaumb.png";
+import videoThumb from "../../assets/images/dashboard_anim.gif";
 import ShowcaseFrame from "./ShowcaseFrame.jsx";
 import TrafficGrid from "./TrafficGrid.jsx";
 import "./Hero.css";
