@@ -136,7 +136,6 @@ export default function Footer() {
         <span className="footer__copy">
           © {new Date().getFullYear()} AJEMS. All rights reserved.
         </span>
-        <span className="footer__made">Built for modern teams.</span>
       </div>
     </footer>
   );
