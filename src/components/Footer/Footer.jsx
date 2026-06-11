@@ -54,9 +54,13 @@ export default function Footer() {
         <span className="footer__blob footer__blob--right" />
       </div>
 
-      {/* decorative corner SVGs (same as home) */}
-      <img src={cornerImg} alt="" aria-hidden="true" className="footer__corner footer__corner--left" />
-      <img src={cornerImg} alt="" aria-hidden="true" className="footer__corner footer__corner--right" />
+      {/* decorative corner SVG (right only) */}
+      <img
+        src={cornerImg}
+        alt=""
+        aria-hidden="true"
+        className="footer__corner footer__corner--right"
+      />
 
       {/* top 5-column layout */}
       <div className="container footer__top">
@@ -128,7 +132,7 @@ export default function Footer() {
       </div>
 
       {/* bottom bar */}
-      <div className="container footer__bottom">
+      <div className="container  footer__bottom">
         <span className="footer__copy">
           © {new Date().getFullYear()} AJEMS. All rights reserved.
         </span>
