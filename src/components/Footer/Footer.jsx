@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import logo from "../../assets/images/ajems_logo.png";
-import footerText from "../../assets/logos/footer_text.svg";
+import cornerImg from "../../assets/images/glow.svg";
 import {
   FaFacebook,
   FaInstagram,
@@ -47,12 +47,16 @@ const contact = [
 export default function Footer() {
   return (
     <footer className="footer">
-      {/* layered glow blobs */}
+      {/* glow blobs */}
       <div className="footer__glows" aria-hidden="true">
         <span className="footer__blob footer__blob--center" />
         <span className="footer__blob footer__blob--left" />
         <span className="footer__blob footer__blob--right" />
       </div>
+
+      {/* decorative corner SVGs (same as home) */}
+      <img src={cornerImg} alt="" aria-hidden="true" className="footer__corner footer__corner--left" />
+      <img src={cornerImg} alt="" aria-hidden="true" className="footer__corner footer__corner--right" />
 
       {/* top 5-column layout */}
       <div className="container footer__top">
@@ -123,14 +127,12 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* giant SVG brand text */}
-      <div className="footer__giant" aria-hidden="true">
-        <img src={footerText} alt="" />
-      </div>
-
-      {/* copyright */}
-      <div className="footer__copy">
-        © {new Date().getFullYear()} AJEMS. All rights reserved.
+      {/* bottom bar */}
+      <div className="container footer__bottom">
+        <span className="footer__copy">
+          © {new Date().getFullYear()} AJEMS. All rights reserved.
+        </span>
+        <span className="footer__made">Built for modern teams.</span>
       </div>
     </footer>
   );

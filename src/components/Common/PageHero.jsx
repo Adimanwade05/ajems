@@ -1,10 +1,16 @@
 import { motion } from "framer-motion";
+import cornerImg from "../../assets/images/glow.svg";
 import "./PageHero.css";
 
 export default function PageHero({ eyebrow, title, subtitle }) {
   return (
     <section className="pagehero">
       <div className="pagehero__glow anim-glow" />
+
+      {/* animated corner accents */}
+      <img src={cornerImg} className="pagehero__corner pagehero__corner--left" alt="" aria-hidden="true" />
+      <img src={cornerImg} className="pagehero__corner pagehero__corner--right" alt="" aria-hidden="true" />
+
       <div className="container pagehero__inner">
         {eyebrow && (
           <motion.span

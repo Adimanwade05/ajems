@@ -3,7 +3,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import SectionHeading from "../Common/SectionHeading.jsx";
 import "./FAQ.css";
 
-const faqs = [
+// default FAQs (agar koi page list na bheje)
+const defaultFaqs = [
   {
     q: "Do I need technical knowledge or coding skills to use AJEMS?",
     a: "No. AJEMS is designed for business users and teams. You can create forms, workflows, dashboards, reports, and business applications without writing code.",
@@ -25,16 +26,18 @@ const faqs = [
     a: "Most businesses can start creating forms, workflows, and dashboards within a few hours. Depending on complexity, complete business systems can be deployed in days instead of months.",
   },
 ];
-export default function FAQ() {
+
+export default function FAQ({
+  title = "Questions Before You Switch? We've Got Answers.",
+  subtitle = "See how AJEMS helps businesses simplify operations, automate processes, and grow without complexity.",
+  faqs = defaultFaqs,
+}) {
   const [open, setOpen] = useState(0);
 
   return (
     <section className="faq section">
       <div className="container faq__wrap">
-        <SectionHeading
-          title="Questions Before You Switch? We've Got Answers."
-          subtitle="See how AJEMS helps businesses simplify operations, automate processes, and grow without complexity."
-        />
+        <SectionHeading title={title} subtitle={subtitle} />
 
         <div className="faq__list">
           {faqs.map((item, i) => {
