@@ -4,16 +4,16 @@ import "./IndustryTabs.css";
 
 import img1 from "../../assets/images/1.avif";
 import img2 from "../../assets/images/2.avif";
-import img3 from "../../assets/images/3.avif";
-import fea1 from "../../assets/videos/fea1.mp4";
+import IT from "../../assets/videos/it.mp4";
+import manufacturing from "../../assets/videos/manufacturing.mp4";
 import healthcare from "../../assets/videos/healthcare.mp4";
 
 const industries = [
-  { id: "manufacturing", label: "Manufacturing", img: img1 },
-  { id: "it", label: "IT", img: img3 },
+  { id: "manufacturing", label: "Manufacturing", video: manufacturing },
+  { id: "it", label: "IT", video: IT },
   { id: "healthcare", label: "Healthcare", video: healthcare },
   { id: "realestate", label: "Real Estate", img: img2 },
-  { id: "education", label: "Education", video: fea1 },
+  { id: "education", label: "Education", img: img1 },
 ];
 
 export default function IndustryTabs() {
