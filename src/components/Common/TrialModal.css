@@ -25,7 +25,6 @@
       -webkit-backdrop-filter: blur(24px) saturate(140%);
       backdrop-filter: blur(24px) saturate(140%);
       box-shadow: 0 40px 100px rgba(4, 11, 27, 0.7);
-      /* Modal khud scroll kare agar content zyada ho */
       max-height: calc(100vh - var(--space-8, 2rem));
       max-height: calc(100dvh - var(--space-8, 2rem));
       overflow-y: auto;
@@ -52,22 +51,15 @@
       background: rgba(255, 255, 255, 0.2);
 }
 
-/* ===== Aside (info) ===== */
+/* ===== Aside (heading + image) ===== */
 .tmodal__aside {
       position: relative;
       padding: var(--space-6);
       background: radial-gradient(120% 100% at 0% 0%, #0a1d4a 0%, #061127 60%, #040b1b 100%);
       display: flex;
       flex-direction: column;
-      gap: var(--space-3);
-}
-
-.tmodal__logo {
-      height: 30px;
-      width: auto;
-      object-fit: contain;
-      align-self: flex-start;
-      margin-bottom: var(--space-2);
+      gap: var(--space-4);
+      justify-content: center;
 }
 
 .tmodal__aside-title {
@@ -78,39 +70,13 @@
       line-height: 1.25;
 }
 
-.tmodal__aside-sub {
-      font-family: var(--font-body);
-      font-size: var(--fs-xs);
-      color: var(--text-muted);
-      line-height: 1.6;
-}
-
-.tmodal__perks {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-2);
-      margin-top: var(--space-2);
-}
-
-.tmodal__perks li {
-      display: flex;
-      align-items: flex-start;
-      gap: var(--space-2);
-      font-family: var(--font-body);
-      font-size: var(--fs-xs);
-      color: var(--text-light);
-}
-
-.tmodal__check {
-      flex-shrink: 0;
-      width: 18px;
-      height: 18px;
-      display: grid;
-      place-items: center;
-      border-radius: 50%;
-      color: var(--primary-bg);
-      background: var(--cta-color);
-      margin-top: 1px;
+/* popup image */
+.tmodal__img {
+      width: 100%;
+      height: auto;
+      border-radius: var(--radius-md);
+      object-fit: contain;
+      display: block;
 }
 
 /* ===== Body (form) ===== */
@@ -218,8 +184,10 @@
             padding: var(--space-5);
       }
 
-      .tmodal__perks {
-            display: none;
+      /* mobile pe image chhoti */
+      .tmodal__img {
+            max-height: 160px;
+            object-fit: contain;
       }
 
       .tmodal__body {

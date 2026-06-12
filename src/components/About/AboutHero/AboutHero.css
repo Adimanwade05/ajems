@@ -1,6 +1,6 @@
 .ahero {
       position: relative;
-      padding: clamp(8rem, 16vh, 11rem) 0 var(--space-6);
+      padding: clamp(8rem, 16vh, 11rem) 0 var(--space-2);
       text-align: center;
       overflow: hidden;
       width: 100%;

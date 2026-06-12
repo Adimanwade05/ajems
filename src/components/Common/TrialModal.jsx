@@ -1,16 +1,9 @@
 import { useEffect } from "react";
 import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Mail, User, Building2, Check } from "lucide-react";
-import logo from "../../assets/images/ajems_logo.png";
+import { X, Mail, User, Building2 } from "lucide-react";
+import popupImg from "../../assets/images/ajems_popup.png";
 import "./TrialModal.css";
-
-const perks = [
-  "14-day full access",
-  "All modules: CRM, ERP, HRMS & CMS",
-  "Unlimited users during trial",
-  "Cancel anytime",
-];
 
 export default function TrialModal({ open, onClose }) {
   useEffect(() => {
@@ -57,26 +50,12 @@ export default function TrialModal({ open, onClose }) {
               <X size={18} />
             </button>
 
-            {/* left — info panel */}
+            {/* left — heading + image only */}
             <div className="tmodal__aside">
-              <img src={logo} alt="AJEMS" className="tmodal__logo" />
               <h3 className="tmodal__aside-title">
                 Start your 14-day free trial
               </h3>
-              <p className="tmodal__aside-sub">
-                One platform for CRM, ERP, HRMS &amp; CMS. Set up in minutes —
-                no card required.
-              </p>
-              <ul className="tmodal__perks">
-                {perks.map((p) => (
-                  <li key={p}>
-                    <span className="tmodal__check">
-                      <Check size={13} strokeWidth={3} />
-                    </span>
-                    {p}
-                  </li>
-                ))}
-              </ul>
+              <img src={popupImg} alt="AJEMS" className="tmodal__img" />
             </div>
 
             {/* right — form */}

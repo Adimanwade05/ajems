@@ -55,7 +55,7 @@
   --shadow-soft: 0 10px 40px rgba(4, 11, 27, 0.45);
   --shadow-card: 0 20px 60px rgba(4, 11, 27, 0.55);
   --shadow-glow: 0 0 60px var(--shadow-blue);
-  --shadow-cta: 0 10px 25px rgba(29, 77, 215, 0.25);
+  --shadow-cta: 0 10px 25px rgba(106, 235, 201, 0.25);
 
   /* ===== Motion ===== */
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
