@@ -81,24 +81,23 @@
 
 /* ===== DESKTOP stage (wrap-around peek) ===== */
 .industry__stage {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-      height: clamp(280px, 30vw, 460px);
-      margin-top: var(--space-6);
-      overflow: hidden;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: clamp(320px, calc(55vw * 0.5625), 580px);
+  margin-top: var(--space-6);
+  overflow: hidden;
 }
 
 .industry__card {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      width: 46%;
-      height: 100%;
-      margin-left: -23%;
-      /* center the 46% card (= -width/2) */
-      cursor: pointer;
-      will-change: transform;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 55%;
+  height: 100%;
+  margin-left: -27.5%;        
+  cursor: pointer;
+  will-change: transform;
 }
 
 /* ===== MOBILE viewport (single) ===== */
@@ -125,7 +124,6 @@
       max-width: 100%;
       box-sizing: border-box;
       padding: 0 clamp(1rem, 5vw, 2rem);
-      /* gap slide padding se (overflow safe) */
       opacity: 1;
 }
 
@@ -133,6 +131,7 @@
       width: 100%;
       height: auto;
       margin: 0;
+      aspect-ratio: 16 / 9;
 }
 
 /* ===== Media frame ===== */
@@ -158,9 +157,15 @@
       height: 100%;
       display: block;
       border-radius: var(--radius-md);
-      aspect-ratio: 16 / 9;
       object-fit: cover;
       pointer-events: none;
+}
+
+/* mobile media (parent already 16:9) */
+.industry__track.is-single .industry__media img,
+.industry__track.is-single .industry__video {
+      height: 100%;
+      aspect-ratio: auto;
 }
 
 /* ===== Mobile tweaks ===== */

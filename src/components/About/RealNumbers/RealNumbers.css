@@ -1,0 +1,193 @@
+.numbers {
+      position: relative;
+}
+
+.numbers__glow {
+      position: absolute;
+      top: -60px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 760px;
+      height: 420px;
+      background: radial-gradient(ellipse at center, rgba(58, 160, 255, 0.28), rgba(106, 235, 201, 0.1) 55%, transparent 75%);
+      filter: blur(90px);
+      pointer-events: none;
+      z-index: 0;
+}
+
+.numbers .container {
+      position: relative;
+      z-index: 1;
+}
+
+.numbers__head {
+      text-align: center;
+      margin-bottom: var(--space-7);
+}
+
+.numbers__eyebrow {
+      font-family: var(--font-body);
+      font-size: var(--fs-xs);
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+}
+
+.numbers__title {
+      font-family: var(--font-heading);
+      font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+      font-weight: 400;
+      color: #fff;
+      margin-top: var(--space-3);
+}
+
+.numbers__subtitle {
+      font-family: var(--font-body);
+      font-size: var(--fs-sm);
+      color: var(--text-muted);
+      max-width: 56ch;
+      margin: var(--space-3) auto 0;
+      line-height: 1.6;
+}
+
+.numbers__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: var(--space-4);
+}
+
+/* base = white card */
+.numbers__card {
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+      background: #f7f8fb;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 220px;
+}
+
+/* blue gradient card */
+.numbers__card--blue {
+      background: linear-gradient(150deg, #1d4dd7, #0f2871);
+      border: 1px solid rgba(120, 170, 255, 0.3);
+}
+
+/* centered content */
+.numbers__card--center {
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: var(--space-4);
+}
+
+.numbers__logo {
+      height: 26px;
+      width: auto;
+}
+
+.numbers__big {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 3.6vw, 2.8rem);
+      font-weight: 400;
+      color: #fff;
+      line-height: 1;
+}
+
+.numbers__big--dark {
+      color: #0f1830;
+}
+
+.numbers__label {
+      font-size: var(--fs-xs);
+      color: var(--text-muted);
+}
+
+.numbers__label--light {
+      color: rgba(255, 255, 255, 0.8);
+}
+
+.numbers__stat {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+}
+
+.numbers__unit {
+      font-size: var(--fs-sm);
+      color: #5b6478;
+}
+
+.numbers__foot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-3);
+      font-size: var(--fs-xs);
+      color: #5b6478;
+}
+
+/* ===== wide mission/vision ===== */
+.numbers__wide {
+      margin-top: var(--space-4);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, #04060f, #0a1430 70%, #0f2050);
+      border: 1px solid var(--glass-border);
+      padding: clamp(2rem, 4vw, 3rem);
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: var(--space-7);
+      align-items: center;
+}
+
+.numbers__tag {
+      font-size: var(--fs-xs);
+      letter-spacing: 0.16em;
+      color: var(--cta-color);
+}
+
+.numbers__wide-left h3 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+      font-weight: 400;
+      color: #fff;
+      margin: var(--space-3) 0 var(--space-5);
+      line-height: 1.2;
+}
+
+.numbers__wide-btn {
+      font-size: var(--fs-xs);
+      padding: 0.55rem 1.2rem;
+}
+
+.numbers__wide-right {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+}
+
+.numbers__wide-right p {
+      font-size: clamp(0.75rem, 1vw, 0.9rem);
+      color: var(--text-light);
+      line-height: 1.75;
+      font-weight: 300;
+}
+
+.numbers__wide-right strong {
+      color: #fff;
+      font-weight: 400;
+      font-size: clamp(0.85rem, 1.2vw, 1rem);
+
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 980px) {
+      .numbers__grid {
+            grid-template-columns: 1fr;
+      }
+
+      .numbers__wide {
+            grid-template-columns: 1fr;
+            gap: var(--space-5);
+      }
+}

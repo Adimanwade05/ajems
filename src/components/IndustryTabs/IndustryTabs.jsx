@@ -6,11 +6,12 @@ import img1 from "../../assets/images/1.avif";
 import img2 from "../../assets/images/2.avif";
 import img3 from "../../assets/images/3.avif";
 import fea1 from "../../assets/videos/fea1.mp4";
+import healthcare from "../../assets/videos/healthcare.mp4";
 
 const industries = [
   { id: "manufacturing", label: "Manufacturing", img: img1 },
   { id: "it", label: "IT", img: img3 },
-  { id: "healthcare", label: "Healthcare", img: img1 },
+  { id: "healthcare", label: "Healthcare", video: healthcare },
   { id: "realestate", label: "Real Estate", img: img2 },
   { id: "education", label: "Education", video: fea1 },
 ];
