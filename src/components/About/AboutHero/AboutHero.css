@@ -1,8 +1,8 @@
 .ahero {
-      position: relative;
-      padding: clamp(8rem, 16vh, 11rem) 0 var(--space-6);
-      text-align: center;
-      overflow: hidden;
+  position: relative;
+  padding: clamp(8rem, 16vh, 11rem) 0 var(--space-6);
+  text-align: center;
+  overflow: hidden;       
 }
 
 .ahero__gradient {

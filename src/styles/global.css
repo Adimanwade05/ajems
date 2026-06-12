@@ -7,10 +7,7 @@
   box-sizing: border-box;
 }
 
-html,
-body {
-  overflow-x: clip;
-}
+
 
 html {
   scroll-behavior: smooth;

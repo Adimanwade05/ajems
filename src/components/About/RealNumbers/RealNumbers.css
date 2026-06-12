@@ -1,5 +1,6 @@
 .numbers {
       position: relative;
+      overflow: hidden; 
 }
 
 .numbers__glow {

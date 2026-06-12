@@ -459,14 +459,8 @@
 }
 
 @keyframes bentoFlow {
-  0% {
-    left: -40%;
-  }
-
-  60%,
-  100% {
-    left: 110%;
-  }
+  0% { left: -40%; }
+  60%, 100% { left: 110%; }
 }
 
 /* ===== Team — hover reveal (image style) ===== */
@@ -569,28 +563,22 @@
   .numbers__grid {
     grid-template-columns: 1fr;
   }
-
   .numbers__wide {
     grid-template-columns: 1fr;
     gap: var(--space-5);
   }
-
   .bento__grid {
     grid-template-columns: 1fr 1fr;
   }
-
   .bento__cell--tall {
     grid-row: auto;
   }
-
   .bento__cell--wide {
     grid-column: 1 / -1;
   }
-
   .team__grid {
     grid-template-columns: repeat(2, 1fr);
   }
-
   /* touch pe info hamesha dikhe */
   .tcard__info {
     opacity: 1;
@@ -602,12 +590,10 @@
   .bento__grid {
     grid-template-columns: 1fr;
   }
-
   .bento__card--row {
     flex-direction: column;
     align-items: stretch;
   }
-
   .team__grid {
     grid-template-columns: 1fr;
     max-width: 300px;
