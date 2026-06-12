@@ -4,16 +4,17 @@ import "./IndustryTabs.css";
 
 import img1 from "../../assets/images/1.avif";
 import img2 from "../../assets/images/2.avif";
-import IT from "../../assets/videos/IT.mp4";
 import manufacturing from "../../assets/videos/Manufacturing.mp4";
 import healthcare from "../../assets/videos/healthcare.mp4";
+import hr from "../../assets/videos/hr.mp4";
+import fea1 from "../../assets/videos/fea1.mp4";
 
 const industries = [
-  { id: "manufacturing", label: "Manufacturing", video: manufacturing },
-  { id: "it", label: "IT", video: IT },
+  { id: "it", label: "IT", video: fea1 },
+  { id: "hr", label: "HR", video: hr },
   { id: "healthcare", label: "Healthcare", video: healthcare },
+  { id: "manufacturing", label: "Manufacturing", video: manufacturing },
   { id: "realestate", label: "Real Estate", img: img2 },
-  { id: "education", label: "Education", img: img1 },
 ];
 
 export default function IndustryTabs() {
@@ -30,7 +31,6 @@ export default function IndustryTabs() {
 
   const total = industries.length;
 
-  // direction-aware (wrap shortest path)
   const goTo = (i) => {
     let d = i - active;
     if (Math.abs(d) > total / 2) d = d > 0 ? d - total : d + total;
@@ -47,7 +47,6 @@ export default function IndustryTabs() {
       <img src={item.img} alt={item.label} />
     );
 
-  // desktop wrap-around: -2..+2 around active
   const visible = [];
   for (let off = -2; off <= 2; off++) {
     const idx = (active + off + total) % total;
@@ -59,7 +58,6 @@ export default function IndustryTabs() {
       <div className="industry__box">
         <div className="industry__glow" />
 
-        {/* heading + tabs */}
         <div className="container industry__head">
           <h2 className="industry__title">
             One Platform. Unlimited Industry Possibilities.
@@ -79,7 +77,6 @@ export default function IndustryTabs() {
           </div>
         </div>
 
-        {/* ===== DESKTOP: wrap-around directional slide ===== */}
         {isDesktop ? (
           <div className="industry__stage">
             {visible.map((it) => (
@@ -106,7 +103,6 @@ export default function IndustryTabs() {
             ))}
           </div>
         ) : (
-          /* ===== MOBILE: single active, slide + swipe ===== */
           <div className="industry__viewport">
             <motion.div
               className="industry__track is-single"
