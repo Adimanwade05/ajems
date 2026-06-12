@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import TrafficGrid from "../../Hero/TrafficGrid.jsx";
-// import LogoMarquee from "../../LogoMarquee/LogoMarquee.jsx";
 import cornerImg from "../../../assets/images/glow.svg";
 import logo from "../../../assets/images/ajems_logo.png";
 import "./AboutHero.css";
@@ -90,10 +89,6 @@ export default function AboutHero() {
           </Link>
         </motion.div>
       </div>
-
-      {/* <div className="ahero__clients">
-        <LogoMarquee />
-      </div> */}
     </section>
   );
 }
