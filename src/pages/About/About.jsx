@@ -19,7 +19,7 @@ export default function About() {
     <>
       <AboutHero />
       <RealNumbers />
-      <FeaturesTabs />
+      {/* <FeaturesTabs /> */}
       <BentoGrid />
       <TeamSection />
       <FAQ
