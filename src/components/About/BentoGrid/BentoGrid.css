@@ -4,8 +4,8 @@
 }
 
 .bento {
-  overflow: hidden;         
-  max-width: 100%;
+      overflow: hidden;
+      max-width: 100%;
 }
 
 .bento__title {
@@ -42,18 +42,18 @@
 }
 
 .bento__card {
-  position: relative;
-  height: 100%;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  padding: var(--space-5);              
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);                  
-  border: 1px solid var(--glass-border);
-  min-height: 240px;                    
-  transition: transform var(--t-base) var(--ease-out),
-    border-color var(--t-base) var(--ease-soft);
+      position: relative;
+      height: 100%;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      padding: var(--space-5);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      border: 1px solid var(--glass-border);
+      min-height: 240px;
+      transition: transform var(--t-base) var(--ease-out),
+            border-color var(--t-base) var(--ease-soft);
 }
 
 .bento__card:hover {
@@ -110,11 +110,11 @@
 
 /* tall card bottom image — height kam */
 .bento__img--bottom {
-  margin-top: auto;
-  width: 100%;
-  border-radius: var(--radius-md);
-  object-fit: cover;
-  max-height: 180px;                     
+      margin-top: auto;
+      width: 100%;
+      border-radius: var(--radius-md);
+      object-fit: cover;
+      max-height: 180px;
 }
 
 /* ===== Card 3 — animated task ticks ===== */
@@ -173,10 +173,10 @@
 
 /* ===== Card 4 — wide row + animated workflow diagram ===== */
 .bento__card--row {
-  flex-direction: row;
-  align-items: center;
-  gap: var(--space-5);
-  min-height: 180px;
+      flex-direction: row;
+      align-items: center;
+      gap: var(--space-5);
+      min-height: 180px;
 }
 
 .bento__row-left {

@@ -4,7 +4,7 @@ import "./IndustryTabs.css";
 
 import img1 from "../../assets/images/1.avif";
 import img2 from "../../assets/images/2.avif";
-import IT from "../../assets/videos/it.mp4";
+import IT from "../../assets/videos/IT.mp4";
 import manufacturing from "../../assets/videos/manufacturing.mp4";
 import healthcare from "../../assets/videos/healthcare.mp4";
 
