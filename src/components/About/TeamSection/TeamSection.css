@@ -3,6 +3,11 @@
       margin-bottom: var(--space-7);
 }
 
+.team {
+      overflow: hidden;
+      max-width: 100%;
+}
+
 .team__title {
       font-family: var(--font-heading);
       font-size: clamp(1.6rem, 3.2vw, 2.4rem);
@@ -20,7 +25,7 @@
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: var(--space-4);
-     
+
       margin: 0 auto;
 }
 

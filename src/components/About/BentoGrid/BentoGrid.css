@@ -4,7 +4,8 @@
 }
 
 .bento {
-  overflow: hidden;       
+  overflow: hidden;         
+  max-width: 100%;
 }
 
 .bento__title {
