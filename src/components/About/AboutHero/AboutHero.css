@@ -1,8 +1,10 @@
 .ahero {
-  position: relative;
-  padding: clamp(8rem, 16vh, 11rem) 0 var(--space-6);
-  text-align: center;
-  overflow: hidden;       
+      position: relative;
+      padding: clamp(8rem, 16vh, 11rem) 0 var(--space-6);
+      text-align: center;
+      overflow: hidden;
+      width: 100%;
+      max-width: 100%;
 }
 
 .ahero__gradient {
@@ -22,10 +24,13 @@
       z-index: 0;
       pointer-events: none;
       opacity: 0.7;
+      overflow: hidden;
+      max-width: 100%;
       -webkit-mask-image: radial-gradient(120% 90% at 50% 30%, #000 30%, transparent 80%);
       mask-image: radial-gradient(120% 90% at 50% 30%, #000 30%, transparent 80%);
 }
 
+/* ===== Corner accents ===== */
 .ahero__corner {
       position: absolute;
       top: 40px;
@@ -106,4 +111,22 @@
       position: relative;
       z-index: 2;
       margin-top: clamp(3rem, 7vh, 5rem);
+      overflow: hidden;
+      max-width: 100%;
+}
+
+/* ===== Mobile — corners contain, no overflow ===== */
+@media (max-width: 640px) {
+      .ahero__corner {
+            width: 150px;
+            opacity: 0.15;
+            left: -20px;
+            top: 30px;
+      }
+
+      .ahero__corner--right {
+            left: auto;
+            right: -20px;
+            bottom: 40px;
+      }
 }
