@@ -2,7 +2,7 @@ import AboutHero from "../../components/About/AboutHero/AboutHero.jsx";
 import RealNumbers from "../../components/About/RealNumbers/RealNumbers.jsx";
 import BentoGrid from "../../components/About/BentoGrid/BentoGrid.jsx";
 import TeamSection from "../../components/About/TeamSection/TeamSection.jsx";
-import FeaturesTabs from "../../components/FeaturesTabs/FeaturesTabs.jsx";
+// import FeaturesTabs from "../../components/FeaturesTabs/FeaturesTabs.jsx";
 import FAQ from "../../components/FAQ/FAQ.jsx";
 
 
