@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import TrafficGrid from "../../Hero/TrafficGrid.jsx";
 import LogoMarquee from "../../LogoMarquee/LogoMarquee.jsx";
@@ -59,9 +58,9 @@ export default function AboutHero() {
           animate="show"
           custom={1}
         >
-          Reimagine business with
+          One Platform. Built
           <br />
-          <span className="text-gradient">one intelligent platform</span>
+          <span className="text-gradient">Around Your Business.</span>
         </motion.h1>
 
         <motion.p
@@ -71,11 +70,12 @@ export default function AboutHero() {
           animate="show"
           custom={2}
         >
-          Your on-demand business OS. Automate routine work, streamline
-          decisions, and free your team to focus on what matters most.
+          From daily workflows to enterprise-wide operations, AJEMS empowers
+          organizations to build, automate, and manage business processes
+          without complexity.
         </motion.p>
 
-        <motion.div
+        {/* <motion.div
           className="ahero__actions"
           variants={fadeUp}
           initial="hidden"
@@ -88,7 +88,7 @@ export default function AboutHero() {
           <Link to="/features" className="btn btn-secondary">
             View features
           </Link>
-        </motion.div>
+        </motion.div> */}
       </div>
 
       <div className="ahero__clients">

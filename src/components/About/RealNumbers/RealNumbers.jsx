@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { Layers, Boxes } from "lucide-react";
 import Reveal from "../../Common/Reveal.jsx";
 import CountUp from "../../Common/CountUp.jsx";
 import logo from "../../../assets/images/ajems_logo.png";
@@ -12,19 +11,20 @@ export default function RealNumbers() {
       <div className="container">
         <Reveal variant="blur">
           <div className="numbers__head">
-            <span className="numbers__eyebrow">PLATFORM BENEFITS</span>
+            <span className="numbers__eyebrow">WHO WE ARE</span>
             <h2 className="numbers__title">
-              One Platform. Endless Business Solutions.
+              Helping Businesses Operate with Greater Clarity &amp; Control
             </h2>
             <p className="numbers__subtitle">
-              AJEMS helps organizations automate workflows, centralize data, and
-              manage operations from a single no-code platform.
+              AJEMS empowers organizations to streamline operations, automate
+              workflows, and gain complete visibility across every business
+              process.
             </p>
           </div>
         </Reveal>
 
         <div className="numbers__grid">
-          {/* blue gradient card */}
+          {/* blue gradient card — with logo */}
           <Reveal variant="up">
             <div className="numbers__card numbers__card--blue numbers__card--center">
               <img src={logo} alt="AJEMS" className="numbers__logo" />
@@ -32,46 +32,32 @@ export default function RealNumbers() {
                 <CountUp value={100} suffix="+" />
               </span>
               <span className="numbers__label numbers__label--light">
-                Automatable business processes
+                Organizations Empowered
               </span>
             </div>
           </Reveal>
 
-          {/* white card */}
+          {/* white card — centered, no logo */}
           <Reveal variant="up" delay={0.08}>
-            <div className="numbers__card">
-              <div className="numbers__stat">
-                <span className="numbers__big numbers__big--dark">
-                  <CountUp value={10} suffix="+" />
-                </span>
-                <span className="numbers__unit">industry solutions</span>
-              </div>
-              <div className="numbers__foot">
-                <span>
-                  Across HR, Manufacturing, CRM, Construction, Inventory,
-                  Procurement and more.
-                </span>
-                <Boxes size={34} />
-              </div>
+            <div className="numbers__card numbers__card--center">
+              <span className="numbers__big numbers__big--dark">
+                <CountUp value={1000} suffix="+" />
+              </span>
+              <span className="numbers__label">
+                Business Processes Automated
+              </span>
             </div>
           </Reveal>
 
-          {/* white card */}
+          {/* white card — centered, no logo */}
           <Reveal variant="up" delay={0.16}>
-            <div className="numbers__card">
-              <div className="numbers__stat">
-                <span className="numbers__big numbers__big--dark">
-                  <CountUp value={1} />
-                </span>
-                <span className="numbers__unit">platform</span>
-              </div>
-              <div className="numbers__foot">
-                <span>
-                  Manage forms, workflows, reports, dashboards and approvals
-                  from one place.
-                </span>
-                <Layers size={34} />
-              </div>
+            <div className="numbers__card numbers__card--center">
+              <span className="numbers__big numbers__big--dark">
+                <CountUp value={50} suffix="+" />
+              </span>
+              <span className="numbers__label">
+                Custom Applications Deployed
+              </span>
             </div>
           </Reveal>
         </div>
@@ -81,7 +67,7 @@ export default function RealNumbers() {
           <div className="numbers__wide">
             <div className="numbers__wide-left">
               <span className="bento__chip">OUR MISSION &amp; VISION</span>
-              <h3>Empowering Businesses Through No-Code Innovation</h3>
+              <h3>Connecting People, Processes, and Performance</h3>
               <Link
                 to="/contact"
                 className="btn btn-secondary numbers__wide-btn"
@@ -91,16 +77,16 @@ export default function RealNumbers() {
             </div>
             <div className="numbers__wide-right">
               <p>
-                <strong>Mission:</strong>
-                <br /> Give organizations a flexible platform to digitize
-                operations, automate workflows, and build business applications
-                without coding.
+                <strong>Our Mission:</strong>
+                <br /> To help businesses eliminate operational complexity by
+                bringing people, processes, and information together on a single
+                platform that enables efficiency, visibility, and scalability.
               </p>
               <p>
-                <strong>Vision:</strong>
-                <br /> Become the leading no-code ERP platform that helps
-                businesses scale faster through automation, visibility, and
-                operational excellence.
+                <strong>Our Vision:</strong>
+                <br /> To empower organizations with connected systems that
+                simplify operations, improve collaboration, and drive
+                sustainable business growth.
               </p>
             </div>
           </div>

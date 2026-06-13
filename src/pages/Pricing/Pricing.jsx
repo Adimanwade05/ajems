@@ -8,30 +8,36 @@ import "./Pricing.css";
 
 const plans = [
   {
-    name: "Free Plan",
+    name: "14-Day Free Trial",
     price: "$0",
-    tagline: "Perfect for individuals and small teams",
+    tagline:
+      "Explore AJEMS and experience how a connected platform can streamline your business processes.",
     features: [
-      "Lead & contact management",
-      "Basic sales pipeline",
-      "Limited contacts",
-      "Basic email tracking",
-      "Basic communication",
-      "Task & reminder scheduling",
+      "AI Features Included",
+      "Advanced Automation Builder",
+      "2 GB Storage per User",
+      "10 GB Organization Storage",
+      "Build Forms & Workflows",
+      "Access Core Platform Features",
+      "No Credit Card Required",
     ],
-    cta: "Select plan",
+    cta: "Start Free Trial",
   },
   {
     name: "Standard Plan",
-    price: "$6",
-    tagline: "Advanced features for fast-growing teams",
+    price: "$5.14",
+    tagline:
+      "Ideal for growing teams looking to automate processes and improve operational efficiency.",
+    note: "Minimum 5 Users",
     features: [
-      "Enterprise-grade lead management",
-      "Fully customizable pipelines",
-      "Unlimited contacts",
-      "Advanced email tracking",
-      "Multi-channel communication",
-      "Real-time performance tracking",
+      "AI Features Included",
+      "AI Flow Builder",
+      "Advanced Automation Builder",
+      "Unlimited Workflows",
+      "5 Ready-Made Templates",
+      "2 GB Storage per User",
+      "10 GB Organization Storage",
+      "Community Support",
     ],
     cta: "Select plan",
     featured: true,
@@ -39,14 +45,19 @@ const plans = [
   {
     name: "Business Plan",
     price: "Custom",
-    tagline: "Perfect for individuals and large teams",
+    tagline:
+      "Enterprise-ready capabilities for organizations requiring advanced support, scalability, and control.",
+    note: "Minimum 5 Users",
     features: [
-      "Lead & contact management",
-      "Basic sales pipeline",
-      "Limited contacts",
-      "Basic email tracking",
-      "Basic communication",
-      "Task & reminder scheduling",
+      "AI Features Included",
+      "AI Flow Builder",
+      "Advanced Automation Builder",
+      "Unlimited Workflows",
+      "5 Ready-Made Templates",
+      "Community Support",
+      "24/7 Priority Support",
+      "Enterprise-Grade Scalability",
+      "Dedicated Implementation Support",
     ],
     cta: "Contact sales",
   },
@@ -54,40 +65,54 @@ const plans = [
 
 const compareCols = [
   {
-    name: "Free",
+    name: "14-Day Free Trial",
     price: "$0",
-    note: "per seat / month",
-    cta: "Get started",
+    note: "free",
+    cta: "Start Free",
     to: "/contact",
   },
   {
-    name: "Standard",
-    price: "$6",
-    note: "per seat / month",
-    cta: "Get Pro",
+    name: "Standard Plan",
+    price: "$5.14",
+    note: "per user / month",
+    cta: "Get Standard",
     to: "/contact",
     featured: true,
   },
   {
-    name: "Custom",
-    price: "Quote",
+    name: "Business Plan",
+    price: "Custom",
     note: "on request",
-    cta: "Talk to us",
+    cta: "Contact sales",
     to: "/contact",
   },
 ];
 
 const compareRows = [
-  { label: "Comments", values: [true, true, true] },
-  { label: "Cycles", values: [true, true, true] },
-  { label: "Modules", values: [true, true, true] },
-  { label: "Pages", values: [true, true, true] },
-  { label: "Estimates", values: ["Basic", "Advanced", "Advanced"] },
-  { label: "Layouts", values: [true, true, true] },
-  { label: "Views", values: ["Basic", "Public + Private", "Public + Private"] },
-  { label: "Publish Views", values: [false, true, true] },
-  { label: "Projects", values: [true, true, true] },
-  { label: "Work Items", values: [true, true, true] },
+  { label: "AI Features", values: [true, true, true] },
+  { label: "Advanced Automation Builder", values: [true, true, true] },
+  { label: "AI Flow Builder", values: [false, true, true] },
+  { label: "Forms & Applications", values: [true, true, true] },
+  {
+    label: "Workflow Management",
+    values: ["Limited", "Unlimited", "Unlimited"],
+  },
+  {
+    label: "Ready-Made Templates",
+    values: [false, "5 Templates", "Tailored Business Templates"],
+  },
+  { label: "Storage Per User", values: ["2 GB", "2 GB", "Custom"] },
+  { label: "Organization Storage", values: ["10 GB", "10 GB", "Custom"] },
+  { label: "Minimum Users", values: [false, "5 Users", "5 Users"] },
+  { label: "Community Support", values: [false, true, true] },
+  {
+    label: "Priority Support",
+    values: [false, false, "24/7 Priority Support"],
+  },
+  { label: "Custom Business Solutions", values: [false, true, true] },
+  { label: "Platform Updates", values: [true, true, true] },
+  { label: "Security & Access Controls", values: [true, true, true] },
+  { label: "Dashboard & Reports", values: [true, true, true] },
 ];
 
 function Cell({ v }) {
@@ -100,24 +125,24 @@ function Cell({ v }) {
 
 const pricingFaqs = [
   {
-    q: "Can I switch plans later?",
-    a: "Yes, you can upgrade or downgrade anytime. Changes apply on your next billing cycle.",
+    q: "Do I need technical knowledge or coding skills to use AJEMS?",
+    a: "No. AJEMS is designed for business users and teams. You can create forms, workflows, dashboards, reports, and business applications without writing code.",
   },
   {
-    q: "Is there a free trial?",
-    a: "Yes — every paid plan includes a 14-day free trial, no credit card required.",
+    q: "What types of business systems can be built using AJEMS?",
+    a: "You can build CRM, HRMS, ERP, inventory management, approval workflows, project management, vendor management, compliance systems, and other custom business applications tailored to your processes.",
   },
   {
-    q: "What payment methods do you accept?",
-    a: "We accept all major credit cards, UPI, and net banking.",
+    q: "Can AJEMS be customized for different industries?",
+    a: "Yes. AJEMS is highly flexible and can be configured for industries such as healthcare, manufacturing, real estate, education, IT services, construction, and many others.",
   },
   {
-    q: "Do you offer refunds?",
-    a: "We offer a 30-day money-back guarantee on annual plans.",
+    q: "Can I try AJEMS before purchasing?",
+    a: "Absolutely. AJEMS offers a free 14-day trial, allowing you to explore the platform, build your first application, and evaluate how it fits your business requirements before making a decision.",
   },
   {
-    q: "Is pricing per user?",
-    a: "Yes, pricing is per seat per month. Volume discounts are available for larger teams.",
+    q: "How quickly can I get started with AJEMS?",
+    a: "Most businesses can start creating forms, workflows, and dashboards within a few hours. Depending on complexity, complete business systems can be deployed in days instead of months.",
   },
 ];
 
@@ -125,8 +150,8 @@ export default function Pricing() {
   return (
     <>
       <PageHero
-        title="Simple pricing that scales with you"
-        subtitle="Start free, upgrade when you're ready. No hidden fees, cancel anytime."
+        title="Built for Growth. Priced for Flexibility."
+        subtitle="Choose a plan that fits your business today and scales with you tomorrow."
       />
 
       {/* ===== Plan cards ===== */}
@@ -166,12 +191,12 @@ export default function Pricing() {
                     ) : (
                       <>
                         <span className="pricing__amount">{p.price}</span>
-                        <span className="pricing__period">
-                          / per month per user
-                        </span>
+                        <span className="pricing__period">/ user / month</span>
                       </>
                     )}
                   </div>
+
+                  {p.note && <span className="pricing__note">{p.note}</span>}
 
                   <ul className="pricing__features">
                     {p.features.map((f) => (
@@ -203,11 +228,11 @@ export default function Pricing() {
           <Reveal variant="up">
             <div className="compare__head">
               <h2 className="compare__title">
-                Features that unlock just when you need them
+                Compare Plans &amp; Find the Right Fit
               </h2>
               <p className="compare__sub">
-                Every plan grows with your team — compare what's included and
-                pick the one that fits where you are today.
+                See what's included in each plan and choose the option that best
+                supports your business needs.
               </p>
             </div>
           </Reveal>
@@ -259,8 +284,8 @@ export default function Pricing() {
       </section>
 
       <FAQ
-        title="One Dashboard. Complete Business Intelligence."
-        subtitle="Common questions about plans and billing."
+        title="Questions Before You Switch? We've Got Answers."
+        subtitle="See how AJEMS helps businesses simplify operations, automate processes, and grow without complexity."
         faqs={pricingFaqs}
       />
     </>

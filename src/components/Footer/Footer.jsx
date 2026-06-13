@@ -67,8 +67,7 @@ export default function Footer() {
         <div className="footer__brand">
           <img src={logo} alt="AJEMS" className="footer__logo" />
           <p className="footer__desc">
-            One platform for CRM, ERP, HRMS and CMS — built to help modern teams
-            automate work and scale without code.
+            One Platform. Every Process. Endless Possibilities.
           </p>
 
           {/* social icons under brand */}

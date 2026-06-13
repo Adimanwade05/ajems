@@ -40,9 +40,9 @@ export default function TeamSection() {
       <div className="container">
         <Reveal variant="blur">
           <div className="team__head">
-            <h2 className="team__title">The people behind AJEMS</h2>
+            <h2 className="team__title">The Minds Behind AJEMS</h2>
             <p className="team__sub">
-              A small team obsessed with making business software feel simple.
+              Passionate professionals committed to transforming business operations.
             </p>
           </div>
         </Reveal>
