@@ -118,14 +118,12 @@
       color: var(--text-muted);
 }
 
+
 .tmodal__field input:focus {
       border-color: rgba(106, 235, 201, 0.6);
       background: rgba(255, 255, 255, 0.08);
 }
 
-.tmodal__field input[type="password"] {
-      padding-left: 14px;
-}
 
 .tmodal__submit {
       margin-top: var(--space-2);

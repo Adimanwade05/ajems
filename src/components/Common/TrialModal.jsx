@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Mail, User, Building2 } from "lucide-react";
+import { X, Mail, User, Building2, Phone, Lock } from "lucide-react";
 import popupImg from "../../assets/images/ajems_popup.png";
 import "./TrialModal.css";
 
@@ -64,20 +64,25 @@ export default function TrialModal({ open, onClose }) {
               <form className="tmodal__form" onSubmit={handleSubmit}>
                 <div className="tmodal__field">
                   <User size={16} className="tmodal__ico" />
-                  <input type="text" placeholder="Full name" required />
-                </div>
-                <div className="tmodal__field">
-                  <Mail size={16} className="tmodal__ico" />
-                  <input type="email" placeholder="Work email" required />
+                  <input type="text" placeholder="Full Name" required />
                 </div>
                 <div className="tmodal__field">
                   <Building2 size={16} className="tmodal__ico" />
-                  <input type="text" placeholder="Company name" />
+                  <input type="text" placeholder="Company Name" required />
                 </div>
                 <div className="tmodal__field">
+                  <Mail size={16} className="tmodal__ico" />
+                  <input type="email" placeholder="Company Email" required />
+                </div>
+                <div className="tmodal__field">
+                  <Phone size={16} className="tmodal__ico" />
+                  <input type="tel" placeholder="Phone Number" required />
+                </div>
+                <div className="tmodal__field">
+                  <Lock size={16} className="tmodal__ico" />
                   <input
                     type="password"
-                    placeholder="Create password"
+                    placeholder="Create Password"
                     required
                   />
                 </div>
