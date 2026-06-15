@@ -81,23 +81,23 @@
 
 /* ===== DESKTOP stage (wrap-around peek) ===== */
 .industry__stage {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  height: clamp(320px, calc(55vw * 0.5625), 580px);
-  margin-top: var(--space-6);
-  overflow: hidden;
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: clamp(320px, calc(55vw * 0.5625), 580px);
+      margin-top: var(--space-6);
+      overflow: hidden;
 }
 
 .industry__card {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 55%;
-  height: 100%;
-  margin-left: -27.5%;        
-  cursor: pointer;
-  will-change: transform;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 55%;
+      height: 100%;
+      margin-left: -27.5%;
+      cursor: pointer;
+      will-change: transform;
 }
 
 /* ===== MOBILE viewport (single) ===== */
@@ -138,9 +138,11 @@
 .industry__media {
       width: 100%;
       height: 100%;
+      position: relative;
       border-radius: var(--radius-lg);
       overflow: hidden;
       padding: 8px;
+      /* edge-to-edge full chahiye to ise 0 kar do */
       border: 1px solid var(--glass-border);
       background: rgba(255, 255, 255, 0.05);
       -webkit-backdrop-filter: blur(16px);
@@ -151,6 +153,7 @@
       box-shadow: 0 30px 70px rgba(4, 11, 27, 0.5);
 }
 
+/* image + video fill */
 .industry__media img,
 .industry__video {
       width: 100%;
@@ -158,7 +161,19 @@
       display: block;
       border-radius: var(--radius-md);
       object-fit: cover;
+      /* video/img cover — yeh sahi kaam karta hai */
       pointer-events: none;
+}
+
+
+.industry__frame {
+      width: 100%;
+      height: 100%;
+      display: block;
+      border: none;
+      border-radius: var(--radius-md);
+      pointer-events: none;
+      background: #061127;
 }
 
 /* mobile media (parent already 16:9) */

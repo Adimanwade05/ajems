@@ -1,21 +1,29 @@
-import { Link } from "react-router-dom";
+import { Target, Eye } from "lucide-react";
 import Reveal from "../../Common/Reveal.jsx";
 import CountUp from "../../Common/CountUp.jsx";
-import logo from "../../../assets/images/ajems_logo.png";
 import "./RealNumbers.css";
+
+const stats = [
+  { value: 100, suffix: "+", label: "Organizations Empowered" },
+  { value: 1000, suffix: "+", label: "Business Processes Automated" },
+  { value: 50, suffix: "+", label: "Custom Applications Deployed" },
+];
 
 export default function RealNumbers() {
   return (
-    <section className="numbers section">
-      <div className="numbers__glow" aria-hidden="true" />
+    <section className="rn section">
+      <div className="rn__glow" aria-hidden="true" />
       <div className="container">
+        {/* heading */}
         <Reveal variant="blur">
-          <div className="numbers__head">
-            <span className="numbers__eyebrow">WHO WE ARE</span>
-            <h2 className="numbers__title">
+          <div className="rn__head">
+            <span className="rn__eyebrow">
+              <span className="rn__eyebrow-dot" /> WHO WE ARE
+            </span>
+            <h2 className="rn__title">
               Helping Businesses Operate with Greater Clarity &amp; Control
             </h2>
-            <p className="numbers__subtitle">
+            <p className="rn__subtitle">
               AJEMS empowers organizations to streamline operations, automate
               workflows, and gain complete visibility across every business
               process.
@@ -23,74 +31,50 @@ export default function RealNumbers() {
           </div>
         </Reveal>
 
-        <div className="numbers__grid">
-          {/* blue gradient card — with logo */}
-          <Reveal variant="up">
-            <div className="numbers__card numbers__card--blue numbers__card--center">
-              <img src={logo} alt="AJEMS" className="numbers__logo" />
-              <span className="numbers__big">
-                <CountUp value={100} suffix="+" />
+        {/* stats strip */}
+        <Reveal variant="up" delay={0.05}>
+          <div className="rn__stats">
+            {stats.map((s) => (
+              <div className="rn__stat" key={s.label}>
+                <span className="rn__stat-num">
+                  <CountUp value={s.value} suffix={s.suffix} />
+                </span>
+                <span className="rn__stat-label">{s.label}</span>
+              </div>
+            ))}
+          </div>
+        </Reveal>
+
+        {/* mission & vision — split cards */}
+        <div className="rn__mv">
+          <Reveal variant="up" delay={0.1}>
+            <div className="rn__mv-card">
+              <span className="rn__mv-ico">
+                <Target size={22} strokeWidth={2} />
               </span>
-              <span className="numbers__label numbers__label--light">
-                Organizations Empowered
-              </span>
+              <h3>Our Mission</h3>
+              <p>
+                To help businesses eliminate operational complexity by bringing
+                people, processes, and information together on a single platform
+                that enables efficiency, visibility, and scalability.
+              </p>
             </div>
           </Reveal>
 
-          {/* white card — centered, no logo */}
-          <Reveal variant="up" delay={0.08}>
-            <div className="numbers__card numbers__card--center">
-              <span className="numbers__big numbers__big--dark">
-                <CountUp value={1000} suffix="+" />
+          <Reveal variant="up" delay={0.18}>
+            <div className="rn__mv-card">
+              <span className="rn__mv-ico">
+                <Eye size={22} strokeWidth={2} />
               </span>
-              <span className="numbers__label">
-                Business Processes Automated
-              </span>
-            </div>
-          </Reveal>
-
-          {/* white card — centered, no logo */}
-          <Reveal variant="up" delay={0.16}>
-            <div className="numbers__card numbers__card--center">
-              <span className="numbers__big numbers__big--dark">
-                <CountUp value={50} suffix="+" />
-              </span>
-              <span className="numbers__label">
-                Custom Applications Deployed
-              </span>
+              <h3>Our Vision</h3>
+              <p>
+                To empower organizations with connected systems that simplify
+                operations, improve collaboration, and drive sustainable
+                business growth.
+              </p>
             </div>
           </Reveal>
         </div>
-
-        {/* wide mission/vision */}
-        <Reveal variant="up" delay={0.1}>
-          <div className="numbers__wide">
-            <div className="numbers__wide-left">
-              <span className="bento__chip">OUR MISSION &amp; VISION</span>
-              <h3>Connecting People, Processes, and Performance</h3>
-              <Link
-                to="/contact"
-                className="btn btn-secondary numbers__wide-btn"
-              >
-                Talk to us
-              </Link>
-            </div>
-            <div className="numbers__wide-right">
-              <p>
-                <strong>Our Mission:</strong>
-                <br /> To help businesses eliminate operational complexity by
-                bringing people, processes, and information together on a single
-                platform that enables efficiency, visibility, and scalability.
-              </p>
-              <p>
-                <strong>Our Vision:</strong>
-                <br /> To empower organizations with connected systems that
-                simplify operations, improve collaboration, and drive
-                sustainable business growth.
-              </p>
-            </div>
-          </div>
-        </Reveal>
       </div>
     </section>
   );

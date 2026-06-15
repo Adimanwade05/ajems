@@ -2,19 +2,19 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import "./IndustryTabs.css";
 
-import img1 from "../../assets/images/1.avif";
-import img2 from "../../assets/images/2.avif";
-import manufacturing from "../../assets/videos/Manufacturing.mp4";
-import healthcare from "../../assets/videos/healthcare.mp4";
 import hr from "../../assets/videos/hr.mp4";
-import fea1 from "../../assets/videos/fea1.mp4";
+import healthcare from "../../assets/videos/healthcare.mp4";
 
 const industries = [
-  { id: "it", label: "IT", video: fea1 },
+  { id: "it", label: "IT", html: "/video/it.html" },
   { id: "hr", label: "HR", video: hr },
   { id: "healthcare", label: "Healthcare", video: healthcare },
-  { id: "manufacturing", label: "Manufacturing", video: manufacturing },
-  { id: "realestate", label: "Real Estate", img: img2 },
+  {
+    id: "manufacturing",
+    label: "Manufacturing",
+    html: "/video/manufacturing.html",
+  },
+  { id: "realestate", label: "Real Estate", html: "/video/realestate.html" },
 ];
 
 export default function IndustryTabs() {
@@ -38,14 +38,30 @@ export default function IndustryTabs() {
     setActive(i);
   };
 
-  const renderMedia = (item) =>
-    item.video ? (
-      <video className="industry__video" autoPlay muted loop playsInline>
-        <source src={item.video} type="video/mp4" />
-      </video>
-    ) : (
-      <img src={item.img} alt={item.label} />
-    );
+  const renderMedia = (item) => {
+    if (item.html) {
+      return (
+        <iframe
+          className="industry__frame"
+          src={item.html}
+          title={item.label}
+          loading="lazy"
+          scrolling="no"
+        />
+      );
+    }
+    if (item.video) {
+      return (
+        <video className="industry__video" autoPlay muted loop playsInline>
+          <source src={item.video} type="video/mp4" />
+        </video>
+      );
+    }
+    if (item.img) {
+      return <img src={item.img} alt={item.label} />;
+    }
+    return null;
+  };
 
   const visible = [];
   for (let off = -2; off <= 2; off++) {
