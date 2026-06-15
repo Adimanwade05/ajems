@@ -38,9 +38,11 @@ export default function IndustryTabs() {
     setActive(i);
   };
 
-  const renderMedia = (item) => {
+  // sirf active card ka media play ho
+  const renderMedia = (item, isActive) => {
     if (item.html) {
-      return (
+      // active pe hi iframe load, inactive pe khaali frame (animation na chale)
+      return isActive ? (
         <iframe
           className="industry__frame"
           src={item.html}
@@ -48,11 +50,27 @@ export default function IndustryTabs() {
           loading="lazy"
           scrolling="no"
         />
+      ) : (
+        <div className="industry__placeholder" aria-hidden="true">
+          <span>{item.label}</span>
+        </div>
       );
     }
     if (item.video) {
       return (
-        <video className="industry__video" autoPlay muted loop playsInline>
+        <video
+          key={isActive ? "active" : "idle"}
+          className="industry__video"
+          muted
+          loop
+          playsInline
+          autoPlay={isActive}
+          ref={(el) => {
+            if (!el) return;
+            if (isActive) el.play().catch(() => {});
+            else el.pause();
+          }}
+        >
           <source src={item.video} type="video/mp4" />
         </video>
       );
@@ -114,7 +132,9 @@ export default function IndustryTabs() {
                 }}
                 transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
               >
-                <div className="industry__media">{renderMedia(it)}</div>
+                <div className="industry__media">
+                  {renderMedia(it, it.pos === 0)}
+                </div>
               </motion.div>
             ))}
           </div>
@@ -138,7 +158,9 @@ export default function IndustryTabs() {
                   className={`industry__slide ${i === active ? "is-active" : ""}`}
                   onClick={() => goTo(i)}
                 >
-                  <div className="industry__media">{renderMedia(it)}</div>
+                  <div className="industry__media">
+                    {renderMedia(it, i === active)}
+                  </div>
                 </div>
               ))}
             </motion.div>
