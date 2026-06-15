@@ -50,13 +50,11 @@ export default function TrialModal({ open, onClose }) {
               <X size={18} />
             </button>
 
-            {/* left — heading + image only */}
-            <div className="tmodal__aside">
-              <h3 className="tmodal__aside-title">
-                Start your 14-day free trial
-              </h3>
-              <img src={popupImg} alt="AJEMS" className="tmodal__img" />
-            </div>
+            {/* left — image as background */}
+            <div
+              className="tmodal__aside"
+              style={{ backgroundImage: `url(${popupImg})` }}
+            />
 
             {/* right — form */}
             <div className="tmodal__body">

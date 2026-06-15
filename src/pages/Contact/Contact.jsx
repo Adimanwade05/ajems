@@ -18,10 +18,18 @@ import FAQ from "../../components/FAQ/FAQ.jsx";
 import "./Contact.css";
 
 const infos = [
-  { Icon: MapPin, label: "Office", value: "Remote-first, worldwide" },
+  {
+    Icon: MapPin,
+    label: "Office",
+    value: "Remote-first, serving teams worldwide",
+  },
   { Icon: Phone, label: "Phone", value: "+91 98765 43210" },
   { Icon: Mail, label: "Email", value: "support@ajems.com" },
-  { Icon: Clock, label: "Hours", value: "Mon–Sat, 9:00 AM – 7:00 PM IST" },
+  {
+    Icon: Clock,
+    label: "Support Hours",
+    value: "Mon–Sat, 9:00 AM – 7:00 PM IST",
+  },
 ];
 
 const industriesList = [
@@ -46,20 +54,20 @@ const timeSlots = [
 
 const contactFaqs = [
   {
-    q: "How soon will I get a reply?",
-    a: "Our team usually responds within one business day, often within a few hours.",
+    q: "How quickly will the AJEMS team respond?",
+    a: "We typically reply within one business day, and often within a few hours during working hours.",
   },
   {
-    q: "Can I book a product demo?",
-    a: "Yes — use the Book a Free Demo section below and we'll set up a walkthrough tailored to your team.",
+    q: "Can I book a live product demo?",
+    a: "Yes. Use the Schedule a Demo section below to pick a time, and we'll walk you through AJEMS tailored to your business needs.",
   },
   {
-    q: "Do you offer onboarding help?",
-    a: "Absolutely. Paid plans include guided onboarding and migration support to get you live fast.",
+    q: "Do you provide onboarding and migration support?",
+    a: "Absolutely. Our paid plans include guided onboarding and data migration support so your team is up and running fast.",
   },
   {
-    q: "Which channels can I reach you on?",
-    a: "Email, WhatsApp, and Telegram — whatever works best for you.",
+    q: "What channels can I use to reach AJEMS?",
+    a: "Reach us by email, WhatsApp, or Telegram — whichever is most convenient for you.",
   },
 ];
 
@@ -101,12 +109,12 @@ export default function Contact() {
   const today = new Date();
   const [viewYear, setViewYear] = useState(today.getFullYear());
   const [viewMonth, setViewMonth] = useState(today.getMonth());
-  const [selDate, setSelDate] = useState(null); // Date object
+  const [selDate, setSelDate] = useState(null);
   const [selTime, setSelTime] = useState(null);
   const [booked, setBooked] = useState(false);
 
   const daysInMonth = new Date(viewYear, viewMonth + 1, 0).getDate();
-  const firstDay = new Date(viewYear, viewMonth, 1).getDay(); // 0=Sun
+  const firstDay = new Date(viewYear, viewMonth, 1).getDay();
 
   const prevMonth = () => {
     setSelDate(null);
@@ -151,8 +159,9 @@ export default function Contact() {
   return (
     <>
       <PageHero
-        title="Let's get you started"
-        subtitle="Tell us what's slowing your team down — we'll help you explore how AJEMS can automate it and deliver measurable results."
+        eyebrow="Contact Us"
+        title="Let's Build a Smarter Business Together"
+        subtitle="Tell us about your goals and challenges, and we'll show you how AJEMS can streamline operations, automate workflows, and drive measurable results."
       />
 
       {/* ===== Contact form + info ===== */}
@@ -160,10 +169,11 @@ export default function Contact() {
         <div className="container contact__wrap">
           {/* aside */}
           <Reveal variant="up" className="contact__aside">
-            <h3 className="contact__aside-title">Get in touch</h3>
+            <h3 className="contact__aside-title">Get in Touch</h3>
             <p className="contact__aside-text">
-              Whether you're exploring AJEMS or ready to roll it out across your
-              org, we'd love to help you map the fastest path to value.
+              Whether you're just exploring AJEMS or ready to roll it out across
+              your organization, our team is here to help you find the fastest
+              path to value.
             </p>
 
             <div className="contact__infos">
@@ -187,9 +197,10 @@ export default function Contact() {
               {sent ? (
                 <div className="contact__success">
                   <span className="contact__success-check">✓</span>
-                  <h3>Inquiry sent</h3>
+                  <h3>Inquiry Sent</h3>
                   <p>
-                    Thanks, {form.name || "there"} — we'll be in touch shortly.
+                    Thanks, {form.name || "there"} — our team will be in touch
+                    shortly.
                   </p>
                   <button
                     type="button"
@@ -269,12 +280,12 @@ export default function Contact() {
                   </label>
 
                   <label>
-                    <span>Message *</span>
+                    <span>How Can We Help? *</span>
                     <textarea
                       rows="4"
                       value={form.message}
                       onChange={update("message")}
-                      placeholder="Tell us what you're looking to achieve…"
+                      placeholder="Tell us about your goals or the processes you'd like to automate…"
                       required
                     />
                   </label>
@@ -287,7 +298,7 @@ export default function Contact() {
                   </button>
 
                   <p className="contact__terms">
-                    By sending this form, you agree to our{" "}
+                    By submitting this form, you agree to our{" "}
                     <a href="/terms">Terms &amp; Conditions</a> and{" "}
                     <a href="/privacy">Privacy Policy</a>.
                   </p>
@@ -298,7 +309,7 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* ===== Schedule a Demo (white boxed, dynamic calendar) ===== */}
+      {/* ===== Schedule a Demo ===== */}
       <section className="demo section">
         <div className="container">
           <Reveal variant="up">
@@ -308,8 +319,9 @@ export default function Contact() {
                 <span className="demo__eyebrow">SCHEDULE A DEMO</span>
                 <h2 className="demo__title">See AJEMS in Action</h2>
                 <p className="demo__text">
-                  Book a personalized demo and discover how AJEMS can streamline
-                  your business operations.
+                  Book a personalized demo and discover how AJEMS can simplify
+                  operations, automate workflows, and bring your entire business
+                  onto one platform.
                 </p>
 
                 <div className="demo__meta">
@@ -325,9 +337,9 @@ export default function Contact() {
                 </div>
 
                 <ul className="demo__points">
-                  <li>Your business and goals</li>
-                  <li>Challenges to solve</li>
-                  <li>How AJEMS fits your workflow</li>
+                  <li>Understand your business goals</li>
+                  <li>Identify processes to automate</li>
+                  <li>See how AJEMS fits your workflow</li>
                 </ul>
               </div>
 
@@ -338,7 +350,7 @@ export default function Contact() {
                     <span className="demo__booked-check">
                       <Check size={22} strokeWidth={3} />
                     </span>
-                    <h3>Demo booked!</h3>
+                    <h3>Demo Booked!</h3>
                     <p>
                       {selDate?.getDate()} {MONTHS[selDate?.getMonth()]}{" "}
                       {selDate?.getFullYear()} · {selTime}
@@ -406,7 +418,6 @@ export default function Contact() {
                       </div>
                     </div>
 
-                    {/* time slots — date select hone pe */}
                     {selDate && (
                       <div className="demo__slots">
                         {timeSlots.map((t) => (
@@ -439,8 +450,8 @@ export default function Contact() {
       </section>
 
       <FAQ
-        title="Frequently asked questions"
-        subtitle="Quick answers about getting in touch and getting started."
+        title="Contact &amp; Support FAQs"
+        subtitle="Quick answers about reaching our team and getting started with AJEMS."
         faqs={contactFaqs}
       />
     </>

@@ -8,6 +8,15 @@
       max-width: 100%;
 }
 
+.bento__eyebrow {
+      font-family: var(--font-body);
+      font-size: var(--fs-xs);
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+      display: block;
+      margin-bottom: var(--space-3);
+}
+
 .bento__title {
       font-family: var(--font-heading);
       font-size: clamp(1.6rem, 3.2vw, 2.4rem);
@@ -30,6 +39,7 @@
       grid-template-columns: 0.9fr 1.1fr 1.1fr;
       grid-template-rows: auto auto;
       gap: var(--space-3);
+      max-width: 1100px;
       margin: 0 auto;
 }
 
@@ -73,6 +83,12 @@
       color: var(--cta-color);
 }
 
+.bento__ico--corner {
+      margin-top: auto;
+      align-self: flex-start;
+      opacity: 0.5;
+}
+
 .bento__card h3 {
       font-family: var(--font-heading);
       font-size: 0.95rem;
@@ -101,20 +117,181 @@
       border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-.bento__btn {
-      width: fit-content;
-      margin-top: auto;
-      font-size: 0.7rem;
-      padding: 0.42rem 0.95rem;
-}
-
-/* tall card bottom image — height kam */
-.bento__img--bottom {
+/* ===== Ecosystem animation (Card 1) ===== */
+.eco {
+      position: relative;
       margin-top: auto;
       width: 100%;
-      border-radius: var(--radius-md);
-      object-fit: cover;
-      max-height: 180px;
+      aspect-ratio: 1 / 1;
+      max-height: 260px;
+      margin-left: auto;
+      margin-right: auto;
+}
+
+.eco__lines {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+}
+
+.eco__line {
+      stroke: rgba(106, 235, 201, 0.35);
+      stroke-width: 1;
+      stroke-dasharray: 6;
+      opacity: 0;
+      animation: ecoLineIn 0.6s ease forwards, ecoLineGlow 3s ease-in-out infinite;
+}
+
+@keyframes ecoLineIn {
+      to {
+            opacity: 1;
+      }
+}
+
+@keyframes ecoLineGlow {
+
+      0%,
+      100% {
+            stroke: rgba(106, 235, 201, 0.2);
+      }
+
+      50% {
+            stroke: rgba(106, 235, 201, 0.55);
+      }
+}
+
+.eco__dot {
+      fill: var(--cta-color);
+      filter: drop-shadow(0 0 4px var(--cta-color));
+      offset-distance: 0%;
+      animation: ecoDotMove 2.8s linear infinite;
+}
+
+@keyframes ecoDotMove {
+      0% {
+            offset-distance: 0%;
+            opacity: 0;
+      }
+
+      10% {
+            opacity: 1;
+      }
+
+      90% {
+            opacity: 1;
+      }
+
+      100% {
+            offset-distance: 100%;
+            opacity: 0;
+      }
+}
+
+/* center logo */
+.eco__center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 56px;
+      height: 56px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background: linear-gradient(160deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.04));
+      border: 1px solid rgba(106, 235, 201, 0.4);
+      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 0 24px rgba(106, 235, 201, 0.25);
+      z-index: 3;
+      animation: ecoCenterPulse 3s ease-in-out infinite;
+}
+
+.eco__center img {
+      width: 34px;
+      height: auto;
+}
+
+@keyframes ecoCenterPulse {
+
+      0%,
+      100% {
+            box-shadow: 0 0 24px rgba(106, 235, 201, 0.2);
+      }
+
+      50% {
+            box-shadow: 0 0 38px rgba(106, 235, 201, 0.4);
+      }
+}
+
+/* module cards */
+.eco__mod {
+      position: absolute;
+      font-size: 0.62rem;
+      font-weight: 500;
+      color: #fff;
+      padding: 6px 11px;
+      border-radius: var(--radius-pill);
+      background: linear-gradient(160deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.04));
+      border: 1px solid var(--glass-border);
+      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(8px);
+      white-space: nowrap;
+      z-index: 2;
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.7);
+      animation: ecoModIn 0.7s var(--ease-out) forwards, ecoFloat 4s ease-in-out infinite;
+}
+
+/* positions around center (match SVG endpoints) */
+.eco__mod--0 {
+      top: 16%;
+      left: 50%;
+}
+
+.eco__mod--1 {
+      top: 37%;
+      left: 85%;
+}
+
+.eco__mod--2 {
+      top: 72%;
+      left: 85%;
+}
+
+.eco__mod--3 {
+      top: 83%;
+      left: 50%;
+}
+
+.eco__mod--4 {
+      top: 72%;
+      left: 15%;
+}
+
+.eco__mod--5 {
+      top: 37%;
+      left: 15%;
+}
+
+@keyframes ecoModIn {
+      to {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+      }
+}
+
+@keyframes ecoFloat {
+
+      0%,
+      100% {
+            margin-top: 0;
+      }
+
+      50% {
+            margin-top: -5px;
+      }
 }
 
 /* ===== Card 3 — animated task ticks ===== */
@@ -186,7 +363,6 @@
       gap: var(--space-2);
 }
 
-/* workflow diagram */
 .bento__diagram {
       flex: 1.1;
       display: flex;
@@ -234,7 +410,6 @@
       }
 }
 
-/* connecting line + moving pulse */
 .bento__line {
       position: relative;
       width: clamp(24px, 4vw, 48px);
@@ -331,5 +506,9 @@
 
       .bento__diagram {
             margin-top: var(--space-3);
+      }
+
+      .eco {
+            max-height: 240px;
       }
 }

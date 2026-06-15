@@ -1,15 +1,16 @@
-import { Link } from "react-router-dom";
-import {
-  LayoutGrid,
-  BarChart3,
-  Users,
-  TrendingUp,
-  Check,
-  Bot,
-} from "lucide-react";
+import { LayoutGrid, BarChart3, Users, TrendingUp, Check } from "lucide-react";
 import Reveal from "../../Common/Reveal.jsx";
-import img2 from "../../../assets/images/2.avif";
+import logo from "../../../assets/images/ajems_logo.png";
 import "./BentoGrid.css";
+
+const modules = [
+  "HR",
+  "CRM",
+  "Inventory",
+  "Manufacturing",
+  "Projects",
+  "Finance",
+];
 
 export default function BentoGrid() {
   return (
@@ -29,7 +30,7 @@ export default function BentoGrid() {
         </Reveal>
 
         <div className="bento__grid">
-          {/* Card 1 — tall: One Platform for Every Process */}
+          {/* Card 1 — tall: One Platform for Every Process (ecosystem animation) */}
           <Reveal variant="up" className="bento__cell bento__cell--tall">
             <div className="bento__card bento__card--dark">
               <LayoutGrid size={20} className="bento__ico" />
@@ -38,7 +39,60 @@ export default function BentoGrid() {
                 Eliminate disconnected tools and manage operations, workflows
                 and approvals from a centralized system.
               </p>
-              <img src={img2} alt="" className="bento__img--bottom" />
+
+              {/* ecosystem animation */}
+              <div className="eco" aria-hidden="true">
+                {/* connection lines (SVG) */}
+                <svg
+                  className="eco__lines"
+                  viewBox="0 0 300 300"
+                  preserveAspectRatio="xMidYMid meet"
+                >
+                  {[
+                    [150, 50],
+                    [255, 110],
+                    [255, 215],
+                    [150, 250],
+                    [45, 215],
+                    [45, 110],
+                  ].map(([x, y], i) => (
+                    <g key={i}>
+                      <line
+                        className="eco__line"
+                        x1="150"
+                        y1="150"
+                        x2={x}
+                        y2={y}
+                        style={{ animationDelay: `${i * 0.3}s` }}
+                      />
+                      <circle
+                        className="eco__dot"
+                        r="3"
+                        style={{
+                          animationDelay: `${i * 0.5}s`,
+                          offsetPath: `path('M150 150 L${x} ${y}')`,
+                        }}
+                      />
+                    </g>
+                  ))}
+                </svg>
+
+                {/* center logo */}
+                <span className="eco__center">
+                  <img src={logo} alt="AJEMS" />
+                </span>
+
+                {/* module cards */}
+                {modules.map((m, i) => (
+                  <span
+                    key={m}
+                    className={`eco__mod eco__mod--${i}`}
+                    style={{ animationDelay: `${i * 0.25}s` }}
+                  >
+                    {m}
+                  </span>
+                ))}
+              </div>
             </div>
           </Reveal>
 
